@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Australian Small Businesses — DV2</title>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<style>
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; color: #222; }
+  h1 { text-align: center; }
+  section { margin-bottom: 60px; }
+  h2 { border-bottom: 2px solid #2a6f97; padding-bottom: 5px; }
+  .chart { display: flex; justify-content: center; margin-top: 15px; }
+  footer { font-size: 0.8em; color: #555; margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>Australian Small Businesses: A Data Story</h1>
+<p>Small businesses make up the vast majority of Australian enterprises and are critical to employment and economic resilience. This page explores where they are located, how they're structured, how they're performing, and which sectors they drive.</p>
+
+<section>
+  <h2>Chart 1: Where Small Businesses Are Concentrated (Choropleth)</h2>
+  <div id="chart1" class="chart"></div>
+</section>
+
+<section>
+  <h2>Chart 2: Small Business Count by Capital City (Proportional Symbol Map)</h2>
+  <div id="chart2" class="chart"></div>
+</section>
+
+<section>
+  <h2>Chart 3: Business Entry vs Exit Trend Over Time</h2>
+  <div id="chart3" class="chart"></div>
+</section>
+
+<section>
+  <h2>Chart 4: Number of Businesses by Industry</h2>
+  <div id="chart4" class="chart"></div>
+</section>
+
+<section>
+  <h2>Chart 5: 4-Year Survival Rate by Industry</h2>
+  <div id="chart5" class="chart"></div>
+</section>
+
+<section>
+  <h2>Chart 6: Business Structure Breakdown</h2>
+  <div id="chart6" class="chart"></div>
+</section>
+
+<section>
+  <h2>Chart 7: Small Business Employment Share by Sector</h2>
+  <div id="chart7" class="chart"></div>
+</section>
+
+<footer>
+  Sources: Australian Bureau of Statistics (ABS) — Counts of Australian Businesses, including Entries and Exits.
+</footer>
+
+<script>
+vegaEmbed('#chart1', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height": 400,
+  "data": {"url": "https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/australia-states.geojson", "format": {"type": "json"}},
+  "mark": {"type": "geoshape", "stroke": "white"},
+  "encoding": {
+    "color": {"field": "properties.name", "type": "nominal", "legend": null}
+  },
+  "projection": {"type": "mercator"}
+});
+
+vegaEmbed('#chart2', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height": 400,
+  "data": {"values": [
+    {"city": "Sydney", "lat": -33.87, "lon": 151.21, "count": 280000},
+    {"city": "Melbourne", "lat": -37.81, "lon": 144.96, "count": 260000},
+    {"city": "Brisbane", "lat": -27.47, "lon": 153.03, "count": 140000},
+    {"city": "Perth", "lat": -31.95, "lon": 115.86, "count": 120000},
+    {"city": "Adelaide", "lat": -34.93, "lon": 138.60, "count": 70000}
+  ]},
+  "mark": {"type": "circle", "opacity": 0.7, "color": "#2a6f97"},
+  "encoding": {
+    "longitude": {"field": "lon", "type": "quantitative"},
+    "latitude": {"field": "lat", "type": "quantitative"},
+    "size": {"field": "count", "type": "quantitative", "title": "Businesses"},
+    "tooltip": [{"field": "city"}, {"field": "count"}]
+  },
+  "projection": {"type": "mercator"}
+});
+
+vegaEmbed('#chart3', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height": 300,
+  "data": {"values": [
+    {"year": 2020, "type": "Entries", "count": 290000},
+    {"year": 2021, "type": "Entries", "count": 350000},
+    {"year": 2022, "type": "Entries", "count": 320000},
+    {"year": 2023, "type": "Entries", "count": 300000},
+    {"year": 2024, "type": "Entries", "count": 310000},
+    {"year": 2020, "type": "Exits", "count": 250000},
+    {"year": 2021, "type": "Exits", "count": 230000},
+    {"year": 2022, "type": "Exits", "count": 280000},
+    {"year": 2023, "type": "Exits", "count": 290000},
+    {"year": 2024, "type": "Exits", "count": 270000}
+  ]},
+  "mark": {"type": "line", "point": true},
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal"},
+    "y": {"field": "count", "type": "quantitative", "title": "Businesses"},
+    "color": {"field": "type", "type": "nominal", "scale": {"range": ["#2a6f97", "#e69f00"]}},
+    "tooltip": ["year", "type", "count"]
+  }
+});
+
+vegaEmbed('#chart4', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height": 300,
+  "data": {"values": [
+    {"industry": "Construction", "count": 410000},
+    {"industry": "Professional Services", "count": 350000},
+    {"industry": "Retail Trade", "count": 140000},
+    {"industry": "Accommodation & Food", "count": 95000},
+    {"industry": "Agriculture", "count": 85000}
+  ]},
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "count", "type": "quantitative", "title": "Number of Businesses"},
+    "y": {"field": "industry", "type": "nominal", "sort": "-x"},
+    "color": {"value": "#2a6f97"},
+    "tooltip": ["industry", "count"]
+  }
+});
+
+vegaEmbed('#chart5', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height": 300,
+  "data": {"values": [
+    {"industry": "Agriculture", "rate": 65},
+    {"industry": "Construction", "rate": 58},
+    {"industry": "Retail Trade", "rate": 52},
+    {"industry": "Professional Services", "rate": 60},
+    {"industry": "Accommodation & Food", "rate": 45}
+  ]},
+  "mark": {"type": "point", "filled": true, "size": 100},
+  "encoding": {
+    "x": {"field": "rate", "type": "quantitative", "title": "4-Year Survival Rate (%)", "scale": {"domain": [0, 100]}},
+    "y": {"field": "industry", "type": "nominal", "sort": "-x"},
+    "color": {"value": "#2a6f97"},
+    "tooltip": ["industry", "rate"]
+  }
+});
+
+vegaEmbed('#chart6', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300, "height": 300,
+  "data": {"values": [
+    {"structure": "Sole trader", "pct": 61},
+    {"structure": "Company", "pct": 20},
+    {"structure": "Trust", "pct": 13},
+    {"structure": "Partnership", "pct": 6}
+  ]},
+  "mark": "arc",
+  "encoding": {
+    "theta": {"field": "pct", "type": "quantitative"},
+    "color": {"field": "structure", "type": "nominal", "scale": {"scheme": "blues"}},
+    "tooltip": ["structure", "pct"]
+  }
+});
+
+vegaEmbed('#chart7', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height": 300,
+  "data": {"values": [
+    {"sector": "Construction", "share": 68},
+    {"sector": "Agriculture", "share": 64},
+    {"sector": "Accommodation & Food", "share": 51},
+    {"sector": "Professional Services", "share": 46},
+    {"sector": "Retail Trade", "share": 42}
+  ]},
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "share", "type": "quantitative", "title": "Small Business Employment Share (%)", "scale": {"domain": [0, 100]}},
+    "y": {"field": "sector", "type": "nominal", "sort": "-x"},
+    "color": {"value": "#e69f00"},
+    "tooltip": ["sector", "share"]
+  }
+});
+</script>
+
+</body>
+</html>
