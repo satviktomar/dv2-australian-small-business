@@ -96,7 +96,7 @@
       ],
       "mark": {
         "type": "bar",
-        "color": "#c0532b",
+        "color": "#c8102e",
         "height": {
           "band": 0.62
         }
@@ -135,7 +135,7 @@
         "dx": 6,
         "fontSize": 13,
         "fontWeight": 600,
-        "color": "#1d3540"
+        "color": "#1b2a3a"
       },
       "encoding": {
         "text": {
@@ -152,7 +152,7 @@
       ],
       "mark": {
         "type": "tick",
-        "color": "#1d3540",
+        "color": "#1b2a3a",
         "thickness": 3,
         "size": 26
       },

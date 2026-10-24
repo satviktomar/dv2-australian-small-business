@@ -78,9 +78,9 @@
               "Decrease"
             ],
             "range": [
-              "#1d3540",
-              "#1f6f78",
-              "#c0532b"
+              "#1b2a3a",
+              "#1f5fa8",
+              "#c8102e"
             ]
           },
           "legend": {
@@ -132,7 +132,7 @@
         "dy": -10,
         "fontSize": 15,
         "fontWeight": 600,
-        "color": "#1d3540"
+        "color": "#1b2a3a"
       },
       "encoding": {
         "y": {

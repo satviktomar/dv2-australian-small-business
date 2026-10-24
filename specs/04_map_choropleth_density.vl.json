@@ -75,7 +75,7 @@
       ],
       "mark": {
         "type": "geoshape",
-        "stroke": "#faf7f2"
+        "stroke": "#ffffff"
       },
       "encoding": {
         "color": {
@@ -90,10 +90,10 @@
               100
             ],
             "range": [
-              "#efe3cc",
-              "#a9cfc6",
-              "#4f9a9b",
-              "#12434a"
+              "#e3ecf7",
+              "#9dbbe0",
+              "#4a7fc0",
+              "#0d2f5c"
             ]
           },
           "legend": {
@@ -195,7 +195,7 @@
             "test": "datum.businesses_per_1000 >= 100",
             "value": "#ffffff"
           },
-          "value": "#1d3540"
+          "value": "#1b2a3a"
         }
       }
     }

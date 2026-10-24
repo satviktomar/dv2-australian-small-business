@@ -61,7 +61,7 @@
     {
       "mark": {
         "type": "rect",
-        "stroke": "#faf7f2",
+        "stroke": "#ffffff",
         "strokeWidth": 3
       },
       "encoding": {
@@ -75,8 +75,8 @@
               100
             ],
             "range": [
-              "#f3e3cf",
-              "#12434a"
+              "#eef3fa",
+              "#0d2f5c"
             ]
           },
           "legend": {
@@ -103,7 +103,7 @@
             "test": "datum.rate > 75",
             "value": "#ffffff"
           },
-          "value": "#1d3540"
+          "value": "#1b2a3a"
         }
       }
     }

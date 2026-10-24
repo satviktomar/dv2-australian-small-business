@@ -25,8 +25,8 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#e9e2d4",
-        "stroke": "#faf7f2",
+        "fill": "#e6eaef",
+        "stroke": "#ffffff",
         "strokeWidth": 1.5
       }
     },
@@ -54,7 +54,7 @@
       },
       "mark": {
         "type": "circle",
-        "color": "#c0532b",
+        "color": "#c8102e",
         "opacity": 0.78,
         "stroke": "#ffffff",
         "strokeWidth": 1.5
@@ -92,7 +92,7 @@
               2000,
               5000
             ],
-            "symbolFillColor": "#c0532b",
+            "symbolFillColor": "#c8102e",
             "symbolStrokeColor": "#fff"
           }
         },
@@ -183,7 +183,7 @@
             "test": "datum.insolvencies_fy2025_26 > 2000",
             "value": "#ffffff"
           },
-          "value": "#1d3540"
+          "value": "#1b2a3a"
         }
       }
     }

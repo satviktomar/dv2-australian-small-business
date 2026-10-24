@@ -1,0 +1,176 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart: rank of each industry by number of companies entering insolvency, FY2021–22 to FY2025–26 (ASIC Series 1, Table 1.2). Rank 1 = most insolvencies.",
+  "data": {
+    "url": "data/industry_rank.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "rank": "number",
+        "companies_entering_insolvency": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "indexof([\"Construction\", \"Hospitality (accommodation & food)\", \"Health care & social assistance\"], datum.industry) >= 0 ? datum.industry : 'Other industries'",
+      "as": "group"
+    }
+  ],
+  "width": "container",
+  "height": 460,
+  "padding": {
+    "right": 150
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Financial year",
+      "scale": {
+        "padding": 0.3
+      },
+      "axis": {
+        "labelAngle": 0,
+        "orient": "top",
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "ordinal",
+      "title": "Rank (1 = most companies failing)",
+      "axis": {
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "detail": {
+      "field": "industry"
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Construction",
+          "Hospitality (accommodation & food)",
+          "Health care & social assistance",
+          "Other industries"
+        ],
+        "range": [
+          "#1b2a3a",
+          "#c8102e",
+          "#1f5fa8",
+          "#a9b2bc"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "industry",
+        "title": "Industry"
+      },
+      {
+        "field": "year",
+        "title": "Financial year"
+      },
+      {
+        "field": "rank",
+        "title": "Rank"
+      },
+      {
+        "field": "companies_entering_insolvency",
+        "title": "Companies entering insolvency",
+        "format": ","
+      }
+    ]
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.group === 'Other industries'"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.group === 'Other industries'"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 50,
+        "opacity": 1
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.group !== 'Other industries'"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 4
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.group !== 'Other industries'"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 130,
+        "opacity": 1
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year === '2025-26'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "industry"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Construction",
+              "Hospitality (accommodation & food)",
+              "Health care & social assistance",
+              "Other industries"
+            ],
+            "range": [
+              "#1b2a3a",
+              "#c8102e",
+              "#1f5fa8",
+              "#a9b2bc"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

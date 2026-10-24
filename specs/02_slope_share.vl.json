@@ -51,6 +51,9 @@
   ],
   "width": "container",
   "height": 360,
+  "padding": {
+    "right": 70
+  },
   "encoding": {
     "x": {
       "field": "year",
@@ -94,8 +97,8 @@
           "other"
         ],
         "range": [
-          "#1f6f78",
-          "#c0532b",
+          "#1f5fa8",
+          "#c8102e",
           "#9aa6a8"
         ]
       }

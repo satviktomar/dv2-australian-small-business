@@ -32,12 +32,12 @@
       "title": {
         "text": "Share of all businesses (%)",
         "fontSize": 14,
-        "color": "#1f6f78",
+        "color": "#1f5fa8",
         "anchor": "end"
       },
       "mark": {
         "type": "bar",
-        "color": "#1f6f78",
+        "color": "#1f5fa8",
         "height": {
           "band": 0.72
         }
@@ -139,7 +139,7 @@
       "title": {
         "text": "Share of company failures (%)",
         "fontSize": 14,
-        "color": "#c0532b",
+        "color": "#c8102e",
         "anchor": "start"
       },
       "mark": {
@@ -176,9 +176,9 @@
         "color": {
           "condition": {
             "test": "datum.gap > 1",
-            "value": "#c0532b"
+            "value": "#c8102e"
           },
-          "value": "#d9b8a9"
+          "value": "#efb3bd"
         },
         "tooltip": [
           {

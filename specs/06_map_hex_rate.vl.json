@@ -65,7 +65,7 @@
         "shape": "M0,-1L0.866,-0.5L0.866,0.5L0,1L-0.866,0.5L-0.866,-0.5Z",
         "filled": true,
         "size": 9000,
-        "stroke": "#faf7f2",
+        "stroke": "#ffffff",
         "strokeWidth": 3,
         "opacity": 1
       },
@@ -80,13 +80,14 @@
               70
             ],
             "range": [
-              "#f3e3cf",
-              "#8f2f12"
+              "#fbe3e5",
+              "#8e0b22"
             ]
           },
           "legend": {
-            "orient": "right",
-            "gradientLength": 200
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 220
           }
         },
         "tooltip": [
@@ -138,7 +139,7 @@
             "test": "datum.insolvencies_per_10000 > 48",
             "value": "#ffffff"
           },
-          "value": "#1d3540"
+          "value": "#1b2a3a"
         }
       }
     }

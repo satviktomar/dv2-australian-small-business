@@ -68,7 +68,7 @@
     {
       "mark": {
         "type": "rect",
-        "stroke": "#faf7f2",
+        "stroke": "#ffffff",
         "strokeWidth": 2
       },
       "encoding": {
@@ -82,8 +82,8 @@
               1800
             ],
             "range": [
-              "#f6efe3",
-              "#8f2f12"
+              "#fdf1f2",
+              "#8e0b22"
             ]
           },
           "legend": {
@@ -108,7 +108,7 @@
             "test": "datum.companies > 900",
             "value": "#ffffff"
           },
-          "value": "#1d3540"
+          "value": "#1b2a3a"
         }
       }
     }
