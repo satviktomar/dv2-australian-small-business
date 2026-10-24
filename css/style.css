@@ -1,0 +1,51 @@
+/* Australian Small Businesses — FIT3179 DV2 */
+:root{--ink:#1d3540;--muted:#566a70;--teal:#1f6f78;--terra:#c0532b;--paper:#faf7f2;--card:#ffffff;--line:#e3dccf;--sand:#efe6d6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Work Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(40px,5.6vw,68px);line-height:1.04;max-width:16ch}
+h2{font-size:clamp(28px,3vw,38px);line-height:1.15;margin-bottom:14px}
+h3{font-size:22px;line-height:1.25;margin:0 0 8px}
+p{margin:0 0 14px;max-width:68ch}
+a{color:var(--teal);text-underline-offset:3px}
+strong{font-weight:600}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+/* masthead */
+header{padding:56px 0 36px;border-bottom:1px solid var(--line)}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:14px}
+.lead{font-size:21px;line-height:1.5;max-width:60ch;margin-top:20px;color:#2c4650}
+.byline{font-size:14px;color:var(--muted);margin-top:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px}
+.stat{border-top:3px solid var(--ink);padding-top:12px}
+.stat b{display:block;font-family:"Fraunces",Georgia,serif;font-size:44px;line-height:1.05;font-weight:600}
+.stat.risk{border-color:var(--terra)} .stat.risk b{color:var(--terra)}
+.stat span{font-size:15px;color:var(--muted);display:block;max-width:30ch}
+nav{position:sticky;top:0;z-index:5;background:rgba(250,247,242,.95);backdrop-filter:blur(4px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:26px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px;font-size:14px;font-weight:600}
+nav a{text-decoration:none;color:var(--ink)} nav a:hover{color:var(--terra)}
+/* chapters */
+.chapter{padding:64px 0 24px;border-bottom:1px solid var(--line)}
+.chapter-head{display:grid;grid-template-columns:120px 1fr;gap:24px;margin-bottom:28px}
+.num{font-family:"Fraunces",Georgia,serif;font-size:64px;line-height:1;color:var(--terra);font-weight:300}
+.chapter-head p{font-size:19px;color:#2c4650}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px 26px 18px;margin-bottom:28px}
+.fig h3 + .sub{font-size:15px;color:var(--muted);margin-bottom:12px;max-width:80ch}
+.grid2{display:grid;grid-template-columns:5fr 7fr;gap:28px;align-items:start}
+.grid2.even{grid-template-columns:1fr 1fr}
+.chart{width:100%;overflow-x:auto;overflow-y:hidden}
+.chart.center{display:flex;justify-content:center}
+.note{border-left:3px solid var(--terra);padding:2px 0 2px 16px;margin:14px 0;font-size:16px}
+.note.teal{border-color:var(--teal)}
+.source{font-size:13px;color:var(--muted);margin-top:10px;max-width:none}
+.tag{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--teal);background:#e3efee;border-radius:3px;padding:2px 8px;margin-bottom:8px}
+.tag.risk{color:var(--terra);background:#f7e4dc}
+.hl-t{color:var(--teal);font-weight:600} .hl-r{color:var(--terra);font-weight:600}
+.takeaway{background:var(--ink);color:#f3efe7;border-radius:6px;padding:34px 38px;margin:8px 0 40px}
+.takeaway h2{color:#fff}
+.takeaway ol{margin:0;padding-left:22px;max-width:75ch} .takeaway li{margin-bottom:10px}
+footer{padding:36px 0 60px;font-size:14px;color:var(--muted)}
+footer p{max-width:100ch}
+.vega-bind{font-size:15px;margin:2px 0 12px} .vega-bind select{font:inherit;padding:6px 10px;border:1px solid #9aa9ab;border-radius:4px;background:#fff;color:var(--ink)}
+#vg-tooltip-element{font-family:"Work Sans",sans-serif;font-size:13px}
+@media (max-width:900px){.grid2,.grid2.even{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.chapter-head{grid-template-columns:1fr;gap:6px}.num{font-size:44px}.wrap{padding:0 18px}.fig{padding:18px 14px}}
