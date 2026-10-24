@@ -1,0 +1,148 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Waterfall: how the 1–4 employee group changed between June 2022 and June 2026.",
+  "data": {
+    "url": "data/waterfall_1to4.json"
+  },
+  "width": "container",
+  "height": 340,
+  "transform": [
+    {
+      "calculate": "datum.kind === 'Total' ? format(datum.value, ',') : (datum.value > 0 ? '+' : '−') + format(abs(datum.value), ',')",
+      "as": "label"
+    },
+    {
+      "calculate": "max(datum.start, datum.end)",
+      "as": "top"
+    },
+    {
+      "window": [
+        {
+          "op": "lead",
+          "field": "step",
+          "as": "next"
+        }
+      ]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "step",
+      "type": "ordinal",
+      "sort": null,
+      "title": null,
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 14,
+        "labelLimit": 160,
+        "domain": false,
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "width": {
+          "band": 0.62
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "start",
+          "type": "quantitative",
+          "title": "Businesses with 1–4 employees",
+          "scale": {
+            "domain": [
+              0,
+              1200000
+            ]
+          },
+          "axis": {
+            "format": "~s",
+            "tickCount": 6
+          }
+        },
+        "y2": {
+          "field": "end"
+        },
+        "color": {
+          "field": "kind",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Total",
+              "Increase",
+              "Decrease"
+            ],
+            "range": [
+              "#1d3540",
+              "#1f6f78",
+              "#c0532b"
+            ]
+          },
+          "legend": {
+            "orient": "top-right",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "step",
+            "title": "Step"
+          },
+          {
+            "field": "label",
+            "title": "Businesses"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "color": "#7b8b8e",
+        "xOffset": 52,
+        "x2Offset": -52
+      },
+      "transform": [
+        {
+          "filter": "datum.next != null"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "end",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "next"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "fontSize": 15,
+        "fontWeight": 600,
+        "color": "#1d3540"
+      },
+      "encoding": {
+        "y": {
+          "field": "top",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ]
+}

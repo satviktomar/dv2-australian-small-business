@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bar chart with comparison ticks: most-nominated causes of company failure in liquidators' reports (ASIC Series 3.1, 2024–25). Pick an industry from the menu.",
+  "data": {
+    "url": "data/failure_causes.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "pct_of_reports": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "industry",
+      "value": "Hospitality (accommodation & food)",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All industries",
+          "Construction",
+          "Hospitality (accommodation & food)",
+          "Retail trade",
+          "Other services (e.g. repairs, salons)",
+          "Transport & warehousing",
+          "Professional services",
+          "Manufacturing",
+          "Labour hire",
+          "Health care & social assistance"
+        ],
+        "name": "Industry: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": {
+        "field": "cause",
+        "oneOf": [
+          "Inadequate cash flow or high cash use",
+          "Poor strategic management of business",
+          "Trading losses",
+          "Poor financial control including lack of records",
+          "Under capitalisation",
+          "Poor economic conditions",
+          "Poor management of accounts receivable"
+        ]
+      }
+    },
+    {
+      "calculate": "replace(replace(datum.cause, ' including lack of records', ' (incl. no records)'), 'Under capitalisation', 'Not enough start-up capital')",
+      "as": "cause_label"
+    }
+  ],
+  "width": "container",
+  "height": 330,
+  "encoding": {
+    "y": {
+      "field": "cause_label",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Inadequate cash flow or high cash use",
+        "Poor strategic management of business",
+        "Trading losses",
+        "Poor financial control (incl. no records)",
+        "Not enough start-up capital",
+        "Poor economic conditions",
+        "Poor management of accounts receivable"
+      ],
+      "axis": {
+        "labelFontSize": 14,
+        "labelLimit": 300,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "x": {
+      "field": "pct_of_reports",
+      "type": "quantitative",
+      "title": "% of liquidator reports naming this cause",
+      "scale": {
+        "domain": [
+          0,
+          80
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.industry === industry"
+        }
+      ],
+      "mark": {
+        "type": "bar",
+        "color": "#c0532b",
+        "height": {
+          "band": 0.62
+        }
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "industry",
+            "title": "Industry"
+          },
+          {
+            "field": "cause",
+            "title": "Cause"
+          },
+          {
+            "field": "pct_of_reports",
+            "title": "% of reports"
+          },
+          {
+            "field": "reports_nominating",
+            "title": "Reports",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.industry === industry"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontSize": 13,
+        "fontWeight": 600,
+        "color": "#1d3540"
+      },
+      "encoding": {
+        "text": {
+          "field": "pct_of_reports",
+          "format": ".0f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.industry === 'All industries'"
+        }
+      ],
+      "mark": {
+        "type": "tick",
+        "color": "#1d3540",
+        "thickness": 3,
+        "size": 26
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "cause",
+            "title": "Cause"
+          },
+          {
+            "field": "pct_of_reports",
+            "title": "All industries (%)"
+          }
+        ]
+      }
+    }
+  ]
+}

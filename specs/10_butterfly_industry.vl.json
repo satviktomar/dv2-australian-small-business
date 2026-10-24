@@ -1,0 +1,200 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Butterfly chart: each industry's share of all businesses (ABS, June 2025) vs its share of company failures reported to ASIC (2024–25).",
+  "data": {
+    "url": "data/industry_share.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "share": "number",
+        "count": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "pivot": "measure",
+      "value": "share",
+      "groupby": [
+        "industry"
+      ]
+    },
+    {
+      "calculate": "datum['Share of company failures'] - datum['Share of all businesses']",
+      "as": "gap"
+    }
+  ],
+  "spacing": 0,
+  "hconcat": [
+    {
+      "width": 230,
+      "height": 470,
+      "title": {
+        "text": "Share of all businesses (%)",
+        "fontSize": 14,
+        "color": "#1f6f78",
+        "anchor": "end"
+      },
+      "mark": {
+        "type": "bar",
+        "color": "#1f6f78",
+        "height": {
+          "band": 0.72
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "industry",
+          "type": "nominal",
+          "sort": {
+            "field": "Share of company failures",
+            "order": "descending"
+          },
+          "axis": null
+        },
+        "x": {
+          "field": "Share of all businesses",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "reverse": true,
+            "domain": [
+              0,
+              26
+            ]
+          },
+          "axis": {
+            "tickCount": 5,
+            "grid": false
+          }
+        },
+        "tooltip": [
+          {
+            "field": "industry",
+            "title": "Industry"
+          },
+          {
+            "field": "Share of all businesses",
+            "title": "Share of all businesses (%)"
+          },
+          {
+            "field": "Share of company failures",
+            "title": "Share of company failures (%)"
+          }
+        ]
+      }
+    },
+    {
+      "width": 250,
+      "height": 470,
+      "view": {
+        "stroke": null
+      },
+      "encoding": {
+        "y": {
+          "field": "industry",
+          "type": "nominal",
+          "sort": {
+            "field": "Share of company failures",
+            "order": "descending"
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "industry"
+        }
+      },
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.gap > 1"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "fontSize": 13,
+            "fontWeight": 700
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.gap <= 1"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "fontSize": 13,
+            "color": "#566a70"
+          }
+        }
+      ]
+    },
+    {
+      "width": 230,
+      "height": 470,
+      "title": {
+        "text": "Share of company failures (%)",
+        "fontSize": 14,
+        "color": "#c0532b",
+        "anchor": "start"
+      },
+      "mark": {
+        "type": "bar",
+        "height": {
+          "band": 0.72
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "industry",
+          "type": "nominal",
+          "sort": {
+            "field": "Share of company failures",
+            "order": "descending"
+          },
+          "axis": null
+        },
+        "x": {
+          "field": "Share of company failures",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "domain": [
+              0,
+              26
+            ]
+          },
+          "axis": {
+            "tickCount": 5,
+            "grid": false
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.gap > 1",
+            "value": "#c0532b"
+          },
+          "value": "#d9b8a9"
+        },
+        "tooltip": [
+          {
+            "field": "industry",
+            "title": "Industry"
+          },
+          {
+            "field": "Share of all businesses",
+            "title": "Share of all businesses (%)"
+          },
+          {
+            "field": "Share of company failures",
+            "title": "Share of company failures (%)"
+          }
+        ]
+      }
+    }
+  ]
+}

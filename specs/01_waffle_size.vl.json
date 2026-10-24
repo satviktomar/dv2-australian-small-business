@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Waffle chart: 100 squares = all Australian businesses, June 2026, by employment size.",
+  "data": {
+    "url": "data/waffle_size_2026.json"
+  },
+  "width": 300,
+  "height": 300,
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {
+        "paddingInner": 0.1
+      }
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {
+        "paddingInner": 0.1
+      }
+    },
+    "color": {
+      "field": "size",
+      "type": "ordinal",
+      "title": "Employment size",
+      "scale": {
+        "domain": [
+          "Non-employing",
+          "1–4 employees",
+          "5–19 employees",
+          "20+ employees"
+        ],
+        "range": [
+          "#12434a",
+          "#2f8189",
+          "#86bcb9",
+          "#d6e6e1"
+        ]
+      },
+      "legend": {
+        "orient": "right",
+        "labelFontSize": 14,
+        "symbolType": "square",
+        "symbolSize": 220
+      }
+    },
+    "tooltip": [
+      {
+        "field": "size",
+        "title": "Employment size"
+      },
+      {
+        "field": "share",
+        "title": "Share of businesses (%)"
+      },
+      {
+        "field": "count",
+        "title": "Businesses",
+        "format": ","
+      }
+    ]
+  }
+}

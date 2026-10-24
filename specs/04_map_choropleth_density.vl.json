@@ -1,0 +1,203 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth: businesses per 1,000 residents by state/territory (ABS CABEE June 2026 ÷ ABS ERP March 2026).",
+  "width": "container",
+  "height": 430,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132.5,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout",
+            "fields": [
+              "properties.name"
+            ]
+          }
+        }
+      ],
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "data/states_2026.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "label_lon": "number",
+                  "label_lat": "number",
+                  "hex_col": "number",
+                  "hex_row": "number",
+                  "businesses_jun2026": "number",
+                  "population_mar2026": "number",
+                  "businesses_per_1000": "number",
+                  "growth_pct_2025_26": "number",
+                  "survival_jun22_jun26": "number",
+                  "insolvencies_fy2025_26": "number",
+                  "insolvencies_per_10000": "number",
+                  "entry_rate": "number",
+                  "exit_rate": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "state",
+              "businesses_jun2026",
+              "businesses_per_1000",
+              "growth_pct_2025_26",
+              "insolvencies_fy2025_26",
+              "insolvencies_per_10000"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#faf7f2"
+      },
+      "encoding": {
+        "color": {
+          "field": "businesses_per_1000",
+          "type": "quantitative",
+          "title": "Businesses per 1,000 residents",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              70,
+              85,
+              100
+            ],
+            "range": [
+              "#efe3cc",
+              "#a9cfc6",
+              "#4f9a9b",
+              "#12434a"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 200
+          }
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": 3
+          },
+          "value": 1
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State/territory"
+          },
+          {
+            "field": "businesses_jun2026",
+            "title": "Businesses (June 2026)",
+            "format": ","
+          },
+          {
+            "field": "businesses_per_1000",
+            "title": "Businesses per 1,000 residents",
+            "format": ".1f"
+          },
+          {
+            "field": "growth_pct_2025_26",
+            "title": "Growth 2025–26 (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "insolvencies_fy2025_26",
+            "title": "Companies entering insolvency 2025–26",
+            "format": ","
+          },
+          {
+            "field": "insolvencies_per_10000",
+            "title": "Per 10,000 businesses",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/states_2026.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "label_lon": "number",
+            "label_lat": "number",
+            "hex_col": "number",
+            "hex_row": "number",
+            "businesses_jun2026": "number",
+            "population_mar2026": "number",
+            "businesses_per_1000": "number",
+            "growth_pct_2025_26": "number",
+            "survival_jun22_jun26": "number",
+            "insolvencies_fy2025_26": "number",
+            "insolvencies_per_10000": "number",
+            "entry_rate": "number",
+            "exit_rate": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 15
+      },
+      "transform": [
+        {
+          "calculate": "[datum.abbr, format(datum.businesses_per_1000, '.0f')]",
+          "as": "lab"
+        }
+      ],
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.businesses_per_1000 >= 100",
+            "value": "#ffffff"
+          },
+          "value": "#1d3540"
+        }
+      }
+    }
+  ]
+}

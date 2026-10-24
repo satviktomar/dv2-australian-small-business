@@ -1,0 +1,111 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Cohort survival heatmap: % of businesses operating in June 2022 still operating each June, by starting employment size.",
+  "data": {
+    "url": "data/survival_existing.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "rate": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 300,
+  "encoding": {
+    "x": {
+      "field": "survived_to_june",
+      "type": "ordinal",
+      "title": "Still trading in June…",
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "size",
+      "type": "ordinal",
+      "sort": [
+        "Non-employing",
+        "1–4 employees",
+        "5–19 employees",
+        "20–199 employees",
+        "200+ employees"
+      ],
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 14
+      }
+    },
+    "tooltip": [
+      {
+        "field": "size",
+        "title": "Size in June 2022"
+      },
+      {
+        "field": "survived_to_june",
+        "title": "Still trading in June"
+      },
+      {
+        "field": "rate",
+        "title": "Survival (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#faf7f2",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Still trading (%)",
+          "scale": {
+            "domain": [
+              50,
+              100
+            ],
+            "range": [
+              "#f3e3cf",
+              "#12434a"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 260
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 15,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "rate",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.rate > 75",
+            "value": "#ffffff"
+          },
+          "value": "#1d3540"
+        }
+      }
+    }
+  ]
+}

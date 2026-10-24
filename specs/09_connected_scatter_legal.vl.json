@@ -1,0 +1,258 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Connected scatterplot: entry rate vs exit rate for each legal structure, 2022–23 to 2025–26.",
+  "data": {
+    "url": "data/legal_type_rates.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "entry_rate": "number",
+        "exit_rate": "number",
+        "end_count": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 420,
+  "encoding": {
+    "x": {
+      "field": "entry_rate",
+      "type": "quantitative",
+      "title": "Entry rate (% of businesses that started this year)",
+      "scale": {
+        "domain": [
+          5,
+          25
+        ]
+      }
+    },
+    "y": {
+      "field": "exit_rate",
+      "type": "quantitative",
+      "title": "Exit rate (% that closed this year)",
+      "scale": {
+        "domain": [
+          5,
+          25
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "x": 5,
+            "y": 5
+          },
+          {
+            "x": 25,
+            "y": 25
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "strokeDash": [
+          5,
+          4
+        ],
+        "color": "#8a9a9c"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 5.6,
+            "y": 24,
+            "t": "↖ More closures than starts: shrinking"
+          },
+          {
+            "x": 15.5,
+            "y": 6,
+            "t": "More starts than closures: growing ↘"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 13,
+        "fontStyle": "italic",
+        "color": "#5d6f72"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "type"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "point": {
+          "filled": true,
+          "size": 70
+        }
+      },
+      "encoding": {
+        "order": {
+          "field": "year"
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "title": "Legal structure (click to focus)",
+          "sort": [
+            "Sole Proprietors",
+            "Companies",
+            "Trusts",
+            "Partnerships"
+          ],
+          "scale": {
+            "domain": [
+              "Sole Proprietors",
+              "Companies",
+              "Trusts",
+              "Partnerships"
+            ],
+            "range": [
+              "#c0532b",
+              "#1f6f78",
+              "#c8922a",
+              "#6c6f93"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1
+          },
+          "value": 0.15
+        },
+        "tooltip": [
+          {
+            "field": "type",
+            "title": "Structure"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "entry_rate",
+            "title": "Entry rate (%)"
+          },
+          {
+            "field": "exit_rate",
+            "title": "Exit rate (%)"
+          },
+          {
+            "field": "end_count",
+            "title": "Businesses at year end",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "type": "Sole Proprietors",
+            "x": 19.6,
+            "y": 22.4,
+            "lab": "Sole traders"
+          },
+          {
+            "type": "Companies",
+            "x": 17.6,
+            "y": 13.0,
+            "lab": "Companies"
+          },
+          {
+            "type": "Trusts",
+            "x": 11.1,
+            "y": 8.6,
+            "lab": "Trusts"
+          },
+          {
+            "type": "Partnerships",
+            "x": 5.6,
+            "y": 13.0,
+            "lab": "Partnerships"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 14,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "legend": null
+        },
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1
+          },
+          "value": 0.15
+        }
+      }
+    }
+  ]
+}

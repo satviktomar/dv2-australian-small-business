@@ -1,0 +1,184 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slope chart: share of businesses by employment size, June 2022 vs June 2026.",
+  "data": {
+    "url": "data/size_share_slope.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "count": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "indexof(['20–199 employees','200+ employees'], datum.size) >= 0 ? '20+ employees' : datum.size",
+      "as": "group"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "count",
+          "as": "count"
+        }
+      ],
+      "groupby": [
+        "group",
+        "year"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "count",
+          "as": "total"
+        }
+      ],
+      "groupby": [
+        "year"
+      ]
+    },
+    {
+      "calculate": "100 * datum.count / datum.total",
+      "as": "share"
+    },
+    {
+      "calculate": "datum.group === 'Non-employing' || datum.group === '1–4 employees' ? datum.group : 'other'",
+      "as": "focus"
+    }
+  ],
+  "width": "container",
+  "height": 360,
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "scale": {
+        "padding": 0.9
+      },
+      "axis": {
+        "orient": "top",
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 15,
+        "labelFontWeight": 600,
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "share",
+      "type": "quantitative",
+      "title": "Share of all businesses (%)",
+      "scale": {
+        "domain": [
+          0,
+          70
+        ]
+      },
+      "axis": {
+        "grid": true,
+        "tickCount": 7
+      }
+    },
+    "color": {
+      "field": "focus",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Non-employing",
+          "1–4 employees",
+          "other"
+        ],
+        "range": [
+          "#1f6f78",
+          "#c0532b",
+          "#9aa6a8"
+        ]
+      }
+    },
+    "detail": {
+      "field": "group"
+    },
+    "tooltip": [
+      {
+        "field": "group",
+        "title": "Employment size"
+      },
+      {
+        "field": "year",
+        "title": "Date"
+      },
+      {
+        "field": "share",
+        "title": "Share (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "count",
+        "title": "Businesses",
+        "format": ","
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 90,
+        "opacity": 1
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year === 'June 2022'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "fontSize": 14
+      },
+      "encoding": {
+        "text": {
+          "field": "share",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year === 'June 2026'"
+        },
+        {
+          "calculate": "format(datum.share, '.1f') + '%  ' + datum.group",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 14,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        }
+      }
+    }
+  ]
+}

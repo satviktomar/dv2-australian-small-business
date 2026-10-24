@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Calendar heatmap: companies entering external administration for the first time, each month (ASIC Series 1, data to 27 September 2026).",
+  "data": {
+    "url": "data/insolvencies_monthly.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "companies": "number",
+        "calendar_year": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 300,
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun"
+      ],
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "financial_year",
+      "type": "ordinal",
+      "title": "Financial year",
+      "axis": {
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "tooltip": [
+      {
+        "field": "month",
+        "title": "Month"
+      },
+      {
+        "field": "calendar_year",
+        "title": "Year",
+        "format": "d"
+      },
+      {
+        "field": "companies",
+        "title": "Companies entering insolvency"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#faf7f2",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "companies",
+          "type": "quantitative",
+          "title": "Companies per month",
+          "scale": {
+            "domain": [
+              0,
+              1800
+            ],
+            "range": [
+              "#f6efe3",
+              "#8f2f12"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 260
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "companies"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.companies > 900",
+            "value": "#ffffff"
+          },
+          "value": "#1d3540"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Hexagon tile map (equal-area bin map): companies entering insolvency per 10,000 businesses, FY2025–26. Every state gets the same-sized tile, so small territories are not hidden.",
+  "data": {
+    "url": "data/states_2026.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "label_lon": "number",
+        "label_lat": "number",
+        "hex_col": "number",
+        "hex_row": "number",
+        "businesses_jun2026": "number",
+        "population_mar2026": "number",
+        "businesses_per_1000": "number",
+        "growth_pct_2025_26": "number",
+        "survival_jun22_jun26": "number",
+        "insolvencies_fy2025_26": "number",
+        "insolvencies_per_10000": "number",
+        "entry_rate": "number",
+        "exit_rate": "number"
+      }
+    }
+  },
+  "width": 340,
+  "height": 322,
+  "transform": [
+    {
+      "calculate": "datum.hex_row * 0.866",
+      "as": "hy"
+    },
+    {
+      "calculate": "[datum.abbr, format(datum.insolvencies_per_10000, '.0f')]",
+      "as": "lab"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "hex_col",
+      "type": "quantitative",
+      "axis": null,
+      "scale": {
+        "domain": [
+          -0.15,
+          3.75
+        ]
+      }
+    },
+    "y": {
+      "field": "hy",
+      "type": "quantitative",
+      "axis": null,
+      "scale": {
+        "domain": [
+          3.15,
+          -0.55
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "shape": "M0,-1L0.866,-0.5L0.866,0.5L0,1L-0.866,0.5L-0.866,-0.5Z",
+        "filled": true,
+        "size": 9000,
+        "stroke": "#faf7f2",
+        "strokeWidth": 3,
+        "opacity": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "insolvencies_per_10000",
+          "type": "quantitative",
+          "title": "Per 10,000 businesses",
+          "scale": {
+            "domain": [
+              25,
+              70
+            ],
+            "range": [
+              "#f3e3cf",
+              "#8f2f12"
+            ]
+          },
+          "legend": {
+            "orient": "right",
+            "gradientLength": 200
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State/territory"
+          },
+          {
+            "field": "businesses_jun2026",
+            "title": "Businesses (June 2026)",
+            "format": ","
+          },
+          {
+            "field": "businesses_per_1000",
+            "title": "Businesses per 1,000 residents",
+            "format": ".1f"
+          },
+          {
+            "field": "growth_pct_2025_26",
+            "title": "Growth 2025–26 (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "insolvencies_fy2025_26",
+            "title": "Companies entering insolvency 2025–26",
+            "format": ","
+          },
+          {
+            "field": "insolvencies_per_10000",
+            "title": "Per 10,000 businesses",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "lineHeight": 16
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.insolvencies_per_10000 > 48",
+            "value": "#ffffff"
+          },
+          "value": "#1d3540"
+        }
+      }
+    }
+  ]
+}

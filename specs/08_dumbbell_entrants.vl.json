@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dumbbell chart: survival of businesses that started in 2022–23 after one year vs after three years.",
+  "data": {
+    "url": "data/survival_entrants.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "after_1_year": "number",
+        "after_3_years": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 280,
+  "encoding": {
+    "y": {
+      "field": "size",
+      "type": "ordinal",
+      "sort": [
+        "Non-employing",
+        "1–4 employees",
+        "5–19 employees",
+        "20–199 employees",
+        "200+ employees"
+      ],
+      "title": "Size when started",
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 14,
+        "titlePadding": 12
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 4,
+        "color": "#c9d2d3"
+      },
+      "encoding": {
+        "x": {
+          "field": "after_3_years",
+          "type": "quantitative",
+          "title": "Still trading (%)",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+        "x2": {
+          "field": "after_1_year"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "after_1_year",
+            "after_3_years"
+          ],
+          "as": [
+            "when",
+            "rate"
+          ]
+        },
+        {
+          "calculate": "datum.when === 'after_1_year' ? 'After 1 year (June 2024)' : 'After 3 years (June 2026)'",
+          "as": "When"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "size": 220,
+            "opacity": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "rate",
+              "type": "quantitative"
+            },
+            "color": {
+              "field": "When",
+              "type": "nominal",
+              "title": null,
+              "scale": {
+                "range": [
+                  "#1f6f78",
+                  "#c0532b"
+                ]
+              },
+              "legend": {
+                "orient": "top",
+                "direction": "horizontal"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "size",
+                "title": "Size when started"
+              },
+              {
+                "field": "When"
+              },
+              {
+                "field": "rate",
+                "title": "Still trading (%)",
+                "format": ".1f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dy": -16,
+            "fontSize": 13,
+            "fontWeight": 600
+          },
+          "encoding": {
+            "x": {
+              "field": "rate",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "rate",
+              "format": ".0f"
+            },
+            "color": {
+              "field": "When",
+              "type": "nominal",
+              "legend": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
