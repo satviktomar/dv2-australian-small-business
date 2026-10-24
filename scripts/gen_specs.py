@@ -2,9 +2,10 @@
 import json, os
 OUT = os.path.join(os.path.dirname(__file__), "..", "specs")
 S = "https://vega.github.io/schema/vega-lite/v5.json"
-INK, TEAL, TERRA, SAND, GREY = "#1d3540", "#1f6f78", "#c0532b", "#efe6d6", "#b7c2c4"
+# Palette: Australian-flag navy/blue + red, checked with a colour-vision-deficiency simulation
+INK, TEAL, TERRA, SAND, GREY = "#1b2a3a", "#1f5fa8", "#c8102e", "#e6eaef", "#b7c2c4"
 SIZE4 = ["Non-employing", "1–4 employees", "5–19 employees", "20+ employees"]
-RAMP4 = ["#12434a", "#2f8189", "#86bcb9", "#d6e6e1"]
+RAMP4 = ["#0d2f5c", "#1f5fa8", "#7fa7d6", "#d3e1f2"]
 PROJ = {"type": "conicEqualArea", "parallels": [-18, -36], "rotate": [-132.5, 0]}
 TOPO = {"url": "data/aus_states.topojson", "format": {"type": "topojson", "feature": "states"}}
 STATES = {"url": "data/states_2026.csv", "format": {"type": "csv", "parse": {
@@ -42,7 +43,7 @@ specs["02_slope_share"] = {
     {"joinaggregate": [{"op": "sum", "field": "count", "as": "total"}], "groupby": ["year"]},
     {"calculate": "100 * datum.count / datum.total", "as": "share"},
     {"calculate": "datum.group === 'Non-employing' || datum.group === '1–4 employees' ? datum.group : 'other'", "as": "focus"}],
-  "width": "container", "height": 360,
+  "width": "container", "height": 360, "padding": {"right": 70},
   "encoding": {
     "x": {"field": "year", "type": "ordinal", "title": None, "scale": {"padding": 0.9},
           "axis": {"orient": "top", "domain": False, "ticks": False, "labelFontSize": 15, "labelFontWeight": 600, "labelAngle": 0}},
@@ -95,10 +96,10 @@ specs["04_map_choropleth_density"] = {
      "params": [{"name": "hover", "select": {"type": "point", "on": "pointerover", "clear": "pointerout", "fields": ["properties.name"]}}],
      "transform": [{"lookup": "properties.name", "from": {"data": STATES, "key": "state",
                     "fields": ["state", "businesses_jun2026", "businesses_per_1000", "growth_pct_2025_26", "insolvencies_fy2025_26", "insolvencies_per_10000"]}}],
-     "mark": {"type": "geoshape", "stroke": "#faf7f2"},
+     "mark": {"type": "geoshape", "stroke": "#ffffff"},
      "encoding": {
        "color": {"field": "businesses_per_1000", "type": "quantitative", "title": "Businesses per 1,000 residents",
-                 "scale": {"type": "threshold", "domain": [70, 85, 100], "range": ["#efe3cc", "#a9cfc6", "#4f9a9b", "#12434a"]},
+                 "scale": {"type": "threshold", "domain": [70, 85, 100], "range": ["#e3ecf7", "#9dbbe0", "#4a7fc0", "#0d2f5c"]},
                  "legend": {"orient": "bottom", "direction": "horizontal", "symbolType": "square", "symbolSize": 200}},
        "strokeWidth": {"condition": {"param": "hover", "empty": False, "value": 3}, "value": 1},
        "tooltip": STATE_TT}},
@@ -113,7 +114,7 @@ specs["05_map_symbols_insolvency"] = {
   "$schema": S, "description": "Proportional symbol map: companies entering external administration for the first time, FY2025–26 (ASIC Series 1).",
   "width": "container", "height": 430, "projection": PROJ,
   "layer": [
-    {"data": TOPO, "mark": {"type": "geoshape", "fill": "#e9e2d4", "stroke": "#faf7f2", "strokeWidth": 1.5}},
+    {"data": TOPO, "mark": {"type": "geoshape", "fill": "#e6eaef", "stroke": "#ffffff", "strokeWidth": 1.5}},
     {"data": STATES, "mark": {"type": "circle", "color": TERRA, "opacity": 0.78, "stroke": "#ffffff", "strokeWidth": 1.5},
      "encoding": {"longitude": {"field": "label_lon", "type": "quantitative"},
                   "latitude": {"field": "label_lat", "type": "quantitative"},
@@ -139,11 +140,11 @@ specs["06_map_hex_rate"] = {
   "encoding": {"x": {"field": "hex_col", "type": "quantitative", "axis": None, "scale": {"domain": [-0.15, 3.75]}},
                "y": {"field": "hy", "type": "quantitative", "axis": None, "scale": {"domain": [3.15, -0.55]}}},
   "layer": [
-    {"mark": {"type": "point", "shape": HEX, "filled": True, "size": 9000, "stroke": "#faf7f2", "strokeWidth": 3, "opacity": 1},
+    {"mark": {"type": "point", "shape": HEX, "filled": True, "size": 9000, "stroke": "#ffffff", "strokeWidth": 3, "opacity": 1},
      "encoding": {"color": {"field": "insolvencies_per_10000", "type": "quantitative",
                             "title": "Per 10,000 businesses",
-                            "scale": {"domain": [25, 70], "range": ["#f3e3cf", "#8f2f12"]},
-                            "legend": {"orient": "right", "gradientLength": 200}},
+                            "scale": {"domain": [25, 70], "range": ["#fbe3e5", "#8e0b22"]},
+                            "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 220}},
                   "tooltip": STATE_TT}},
     {"mark": {"type": "text", "fontSize": 14, "fontWeight": 700, "lineHeight": 16},
      "encoding": {"text": {"field": "lab"},
@@ -161,9 +162,9 @@ specs["07_heatmap_survival"] = {
                "tooltip": [{"field": "size", "title": "Size in June 2022"}, {"field": "survived_to_june", "title": "Still trading in June"},
                            {"field": "rate", "title": "Survival (%)", "format": ".1f"}]},
   "layer": [
-    {"mark": {"type": "rect", "stroke": "#faf7f2", "strokeWidth": 3},
+    {"mark": {"type": "rect", "stroke": "#ffffff", "strokeWidth": 3},
      "encoding": {"color": {"field": "rate", "type": "quantitative", "title": "Still trading (%)",
-                            "scale": {"domain": [50, 100], "range": ["#f3e3cf", "#12434a"]},
+                            "scale": {"domain": [50, 100], "range": ["#eef3fa", "#0d2f5c"]},
                             "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 260}}}},
     {"mark": {"type": "text", "fontSize": 15, "fontWeight": 600},
      "encoding": {"text": {"field": "rate", "format": ".1f"},
@@ -209,7 +210,7 @@ specs["09_connected_scatter_legal"] = {
      "mark": {"type": "line", "strokeWidth": 2.5, "point": {"filled": True, "size": 70}},
      "encoding": {"order": {"field": "year"},
                   "color": {"field": "type", "type": "nominal", "title": "Legal structure (click to focus)", "sort": LT,
-                            "scale": {"domain": LT, "range": [TERRA, TEAL, "#c8922a", "#6c6f93"]},
+                            "scale": {"domain": LT, "range": [TERRA, TEAL, "#e09b00", "#7d8796"]},
                             "legend": {"orient": "bottom", "direction": "horizontal"}},
                   "opacity": {"condition": {"param": "pick", "value": 1}, "value": 0.15},
                   "tooltip": [{"field": "type", "title": "Structure"}, {"field": "year", "title": "Year"},
@@ -250,7 +251,7 @@ specs["10_butterfly_industry"] = {
      "encoding": {"y": {"field": "industry", "type": "nominal", "sort": ysort, "axis": None},
                   "x": {"field": "Share of company failures", "type": "quantitative", "title": None,
                         "scale": {"domain": [0, 26]}, "axis": {"tickCount": 5, "grid": False}},
-                  "color": {"condition": {"test": "datum.gap > 1", "value": TERRA}, "value": "#d9b8a9"},
+                  "color": {"condition": {"test": "datum.gap > 1", "value": TERRA}, "value": "#efb3bd"},
                   "tooltip": ytt}}]}
 
 TOP = ["Inadequate cash flow or high cash use", "Poor strategic management of business", "Trading losses",
@@ -293,13 +294,38 @@ specs["12_calendar_heatmap_insolvency"] = {
                "tooltip": [{"field": "month", "title": "Month"}, {"field": "calendar_year", "title": "Year", "format": "d"},
                            {"field": "companies", "title": "Companies entering insolvency"}]},
   "layer": [
-    {"mark": {"type": "rect", "stroke": "#faf7f2", "strokeWidth": 2},
+    {"mark": {"type": "rect", "stroke": "#ffffff", "strokeWidth": 2},
      "encoding": {"color": {"field": "companies", "type": "quantitative", "title": "Companies per month",
-                            "scale": {"domain": [0, 1800], "range": ["#f6efe3", "#8f2f12"]},
+                            "scale": {"domain": [0, 1800], "range": ["#fdf1f2", "#8e0b22"]},
                             "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 260}}}},
     {"mark": {"type": "text", "fontSize": 12},
      "encoding": {"text": {"field": "companies"},
                   "color": {"condition": {"test": "datum.companies > 900", "value": "#ffffff"}, "value": INK}}}]}
+
+HL = ["Construction", "Hospitality (accommodation & food)", "Health care & social assistance"]
+specs["13_bump_industry_rank"] = {
+  "$schema": S, "description": "Bump chart: rank of each industry by number of companies entering insolvency, FY2021–22 to FY2025–26 (ASIC Series 1, Table 1.2). Rank 1 = most insolvencies.",
+  "data": {"url": "data/industry_rank.csv", "format": {"type": "csv", "parse": {"rank": "number", "companies_entering_insolvency": "number"}}},
+  "transform": [{"calculate": "indexof(" + json.dumps(HL) + ", datum.industry) >= 0 ? datum.industry : 'Other industries'", "as": "group"}],
+  "width": "container", "height": 460, "padding": {"right": 150},
+  "encoding": {"x": {"field": "year", "type": "ordinal", "title": "Financial year", "scale": {"padding": 0.3},
+                     "axis": {"labelAngle": 0, "orient": "top", "domain": False, "ticks": False}},
+               "y": {"field": "rank", "type": "ordinal", "title": "Rank (1 = most companies failing)",
+                     "axis": {"domain": False, "ticks": False}},
+               "detail": {"field": "industry"},
+               "color": {"field": "group", "type": "nominal", "legend": None,
+                         "scale": {"domain": HL + ["Other industries"], "range": [INK, TERRA, TEAL, "#a9b2bc"]}},
+               "tooltip": [{"field": "industry", "title": "Industry"}, {"field": "year", "title": "Financial year"},
+                           {"field": "rank", "title": "Rank"}, {"field": "companies_entering_insolvency", "title": "Companies entering insolvency", "format": ","}]},
+  "layer": [
+    {"transform": [{"filter": "datum.group === 'Other industries'"}], "mark": {"type": "line", "strokeWidth": 2}},
+    {"transform": [{"filter": "datum.group === 'Other industries'"}], "mark": {"type": "circle", "size": 50, "opacity": 1}},
+    {"transform": [{"filter": "datum.group !== 'Other industries'"}], "mark": {"type": "line", "strokeWidth": 4}},
+    {"transform": [{"filter": "datum.group !== 'Other industries'"}], "mark": {"type": "circle", "size": 130, "opacity": 1}},
+    {"transform": [{"filter": "datum.year === '2025-26'"}],
+     "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 12},
+     "encoding": {"text": {"field": "industry"}, "color": {"field": "group", "type": "nominal", "legend": None,
+                  "scale": {"domain": HL + ["Other industries"], "range": [INK, TERRA, TEAL, "#a9b2bc"]}}}}]}
 
 for name, spec in specs.items():
     with open(os.path.join(OUT, name + ".vl.json"), "w", encoding="utf-8") as f:

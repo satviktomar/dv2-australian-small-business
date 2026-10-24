@@ -178,3 +178,18 @@ for r in t[6:]:
             if c not in ("Other",): cz.append([name, c, v, reports, round(100 * v / reports, 1)])
 write_csv("failure_causes.csv", ["industry", "cause", "reports_nominating", "reports_total", "pct_of_reports"], cz)
 print(json.dumps(fte)); print(state["Western Australia"])
+
+# ---- Bump chart: industry rank by insolvency rate (ASIC Series 1 Table 1.2 ÷ ABS Table 1) ----
+a12 = rows("asic_series1_2_oct2026.xlsx", "1.2"); head = a12[10]
+fy_ind = collections.defaultdict(collections.Counter)
+for r in a12[11:]:
+    if r[4] is None or not isinstance(r[5], (int, float)): continue
+    for name, v in zip(head[5:24], r[5:24]):
+        if isinstance(v, (int, float)): fy_ind[r[1]][name] += v
+# rank industries by number of companies entering insolvency each financial year (ASIC only, so no
+# classification mismatch with ABS industry counts)
+bump = []
+for fy in ["2021-2022", "2022-2023", "2023-2024", "2024-2025", "2025-2026"]:
+    for rank, (k, v) in enumerate(sorted(((k, fy_ind[fy][k]) for k in SHORT), key=lambda x: -x[1]), 1):
+        bump.append([fy[:5] + fy[-2:], SHORT[k], rank, v])
+write_csv("industry_rank.csv", ["year", "industry", "rank", "companies_entering_insolvency"], bump)
