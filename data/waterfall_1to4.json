@@ -1,0 +1,37 @@
+[
+ {
+  "step": "June 2022",
+  "start": 0,
+  "end": 727457,
+  "value": 727457,
+  "kind": "Total"
+ },
+ {
+  "step": "New entries",
+  "start": 727457,
+  "end": 1120461,
+  "value": 393004,
+  "kind": "Increase"
+ },
+ {
+  "step": "Exits",
+  "start": 1120461,
+  "end": 853020,
+  "value": -267441,
+  "kind": "Decrease"
+ },
+ {
+  "step": "Moved to another size",
+  "start": 853020,
+  "end": 689600,
+  "value": -163420,
+  "kind": "Decrease"
+ },
+ {
+  "step": "June 2026",
+  "start": 0,
+  "end": 689600,
+  "value": 689600,
+  "kind": "Total"
+ }
+]

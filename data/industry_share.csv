@@ -1,0 +1,39 @@
+industry,measure,share,count
+"Agriculture, forestry & fishing",Share of all businesses,6.3,171046
+Mining,Share of all businesses,0.3,8660
+Manufacturing,Share of all businesses,3.3,90687
+Utilities,Share of all businesses,0.3,8888
+Construction,Share of all businesses,17.0,463048
+Wholesale trade,Share of all businesses,3.0,82069
+Retail trade,Share of all businesses,5.7,156018
+Hospitality (accommodation & food),Share of all businesses,4.1,112871
+Transport & warehousing,Share of all businesses,9.1,248982
+Media & telecommunications,Share of all businesses,0.9,25248
+Finance & insurance,Share of all businesses,4.9,133668
+"Rental, hiring & real estate",Share of all businesses,11.3,308206
+Professional services,Share of all businesses,13.0,353485
+Admin & support (incl. labour hire),Share of all businesses,4.7,127031
+Public admin & safety,Share of all businesses,0.3,7771
+Education & training,Share of all businesses,1.6,43046
+Health care & social assistance,Share of all businesses,7.8,213424
+Arts & recreation,Share of all businesses,1.4,39292
+"Other services (e.g. repairs, salons)",Share of all businesses,4.9,134522
+"Agriculture, forestry & fishing",Share of company failures,1.1,106
+Mining,Share of company failures,0.9,89
+Manufacturing,Share of company failures,4.4,426
+Utilities,Share of company failures,2.5,238
+Construction,Share of company failures,24.6,2361
+Wholesale trade,Share of company failures,1.8,171
+Retail trade,Share of company failures,7.0,673
+Hospitality (accommodation & food),Share of company failures,16.6,1588
+Transport & warehousing,Share of company failures,5.3,511
+Media & telecommunications,Share of company failures,2.3,220
+Finance & insurance,Share of company failures,2.8,264
+"Rental, hiring & real estate",Share of company failures,2.3,224
+Professional services,Share of company failures,4.9,472
+Admin & support (incl. labour hire),Share of company failures,6.3,600
+Public admin & safety,Share of company failures,0.5,44
+Education & training,Share of company failures,0.8,76
+Health care & social assistance,Share of company failures,2.8,265
+Arts & recreation,Share of company failures,2.1,203
+"Other services (e.g. repairs, salons)",Share of company failures,11.0,1054

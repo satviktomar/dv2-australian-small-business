@@ -1,0 +1,9 @@
+state,abbr,label_lon,label_lat,hex_col,hex_row,businesses_jun2026,population_mar2026,businesses_per_1000,growth_pct_2025_26,entry_rate,exit_rate,survival_jun22_jun26,insolvencies_fy2025_26,insolvencies_per_10000
+New South Wales,NSW,146.5,-32.3,2.5,1,942658,8670105,108.7,2.8,16.9,13.9,62,5367,56.9
+Victoria,VIC,144.3,-36.9,2,2,773986,7154221,108.2,2.6,17,14.4,60.1,4100,53.0
+Queensland,QLD,144.5,-22.5,2,0,543277,5739461,94.7,3.7,16.9,13.4,62.3,2706,49.8
+South Australia,SA,135.5,-30.0,1.5,1,174310,1916836,90.9,3.3,15.7,12.3,64.6,652,37.4
+Western Australia,WA,122.0,-26.0,0.5,1,278520,3096222,90.0,4.6,17.5,13.1,63.6,830,29.8
+Tasmania,TAS,146.6,-42.1,2.5,3,45094,580691,77.7,1.9,13.3,11.6,65,145,32.2
+Northern Territory,NT,133.4,-19.5,1,0,17440,268899,64.9,3.8,18.5,14.1,61.8,97,55.6
+Australian Capital Territory,ACT,151.9,-36.2,3,2,37785,489668,77.2,2.1,17.9,15,59.7,256,67.8

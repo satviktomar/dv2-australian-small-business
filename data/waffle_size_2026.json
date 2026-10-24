@@ -1,0 +1,802 @@
+[
+ {
+  "id": 1,
+  "col": 0,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 2,
+  "col": 1,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 3,
+  "col": 2,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 4,
+  "col": 3,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 5,
+  "col": 4,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 6,
+  "col": 5,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 7,
+  "col": 6,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 8,
+  "col": 7,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 9,
+  "col": 8,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 10,
+  "col": 9,
+  "row": 0,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 11,
+  "col": 0,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 12,
+  "col": 1,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 13,
+  "col": 2,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 14,
+  "col": 3,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 15,
+  "col": 4,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 16,
+  "col": 5,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 17,
+  "col": 6,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 18,
+  "col": 7,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 19,
+  "col": 8,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 20,
+  "col": 9,
+  "row": 1,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 21,
+  "col": 0,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 22,
+  "col": 1,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 23,
+  "col": 2,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 24,
+  "col": 3,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 25,
+  "col": 4,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 26,
+  "col": 5,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 27,
+  "col": 6,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 28,
+  "col": 7,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 29,
+  "col": 8,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 30,
+  "col": 9,
+  "row": 2,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 31,
+  "col": 0,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 32,
+  "col": 1,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 33,
+  "col": 2,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 34,
+  "col": 3,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 35,
+  "col": 4,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 36,
+  "col": 5,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 37,
+  "col": 6,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 38,
+  "col": 7,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 39,
+  "col": 8,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 40,
+  "col": 9,
+  "row": 3,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 41,
+  "col": 0,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 42,
+  "col": 1,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 43,
+  "col": 2,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 44,
+  "col": 3,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 45,
+  "col": 4,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 46,
+  "col": 5,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 47,
+  "col": 6,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 48,
+  "col": 7,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 49,
+  "col": 8,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 50,
+  "col": 9,
+  "row": 4,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 51,
+  "col": 0,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 52,
+  "col": 1,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 53,
+  "col": 2,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 54,
+  "col": 3,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 55,
+  "col": 4,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 56,
+  "col": 5,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 57,
+  "col": 6,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 58,
+  "col": 7,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 59,
+  "col": 8,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 60,
+  "col": 9,
+  "row": 5,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 61,
+  "col": 0,
+  "row": 6,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 62,
+  "col": 1,
+  "row": 6,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 63,
+  "col": 2,
+  "row": 6,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 64,
+  "col": 3,
+  "row": 6,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 65,
+  "col": 4,
+  "row": 6,
+  "size": "Non-employing",
+  "share": 64.6,
+  "count": 1818575
+ },
+ {
+  "id": 66,
+  "col": 5,
+  "row": 6,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 67,
+  "col": 6,
+  "row": 6,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 68,
+  "col": 7,
+  "row": 6,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 69,
+  "col": 8,
+  "row": 6,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 70,
+  "col": 9,
+  "row": 6,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 71,
+  "col": 0,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 72,
+  "col": 1,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 73,
+  "col": 2,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 74,
+  "col": 3,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 75,
+  "col": 4,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 76,
+  "col": 5,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 77,
+  "col": 6,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 78,
+  "col": 7,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 79,
+  "col": 8,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 80,
+  "col": 9,
+  "row": 7,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 81,
+  "col": 0,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 82,
+  "col": 1,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 83,
+  "col": 2,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 84,
+  "col": 3,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 85,
+  "col": 4,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 86,
+  "col": 5,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 87,
+  "col": 6,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 88,
+  "col": 7,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 89,
+  "col": 8,
+  "row": 8,
+  "size": "1\u20134 employees",
+  "share": 24.5,
+  "count": 689600
+ },
+ {
+  "id": 90,
+  "col": 9,
+  "row": 8,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 91,
+  "col": 0,
+  "row": 9,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 92,
+  "col": 1,
+  "row": 9,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 93,
+  "col": 2,
+  "row": 9,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 94,
+  "col": 3,
+  "row": 9,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 95,
+  "col": 4,
+  "row": 9,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 96,
+  "col": 5,
+  "row": 9,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 97,
+  "col": 6,
+  "row": 9,
+  "size": "5\u201319 employees",
+  "share": 8.3,
+  "count": 232912
+ },
+ {
+  "id": 98,
+  "col": 7,
+  "row": 9,
+  "size": "20+ employees",
+  "share": 2.6,
+  "count": 73691
+ },
+ {
+  "id": 99,
+  "col": 8,
+  "row": 9,
+  "size": "20+ employees",
+  "share": 2.6,
+  "count": 73691
+ },
+ {
+  "id": 100,
+  "col": 9,
+  "row": 9,
+  "size": "20+ employees",
+  "share": 2.6,
+  "count": 73691
+ }
+]

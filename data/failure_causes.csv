@@ -1,0 +1,274 @@
+industry,cause,reports_nominating,reports_total,pct_of_reports
+Hospitality (accommodation & food),Under capitalisation,466,1588,29.3
+Hospitality (accommodation & food),Poor financial control including lack of records,505,1588,31.8
+Hospitality (accommodation & food),Poor management of accounts receivable,61,1588,3.8
+Hospitality (accommodation & food),Poor strategic management of business,734,1588,46.2
+Hospitality (accommodation & food),Inadequate cash flow or high cash use,967,1588,60.9
+Hospitality (accommodation & food),Poor economic conditions,633,1588,39.9
+Hospitality (accommodation & food),Natural disaster,28,1588,1.8
+Hospitality (accommodation & food),Fraud,10,1588,0.6
+Hospitality (accommodation & food),DOCA failed,0,1588,0.0
+Hospitality (accommodation & food),Dispute among directors,29,1588,1.8
+Hospitality (accommodation & food),Trading losses,956,1588,60.2
+Hospitality (accommodation & food),Industry restructuring,3,1588,0.2
+Hospitality (accommodation & food),Business restructuring,17,1588,1.1
+Admin & support (excl. labour hire),Under capitalisation,99,353,28.0
+Admin & support (excl. labour hire),Poor financial control including lack of records,138,353,39.1
+Admin & support (excl. labour hire),Poor management of accounts receivable,58,353,16.4
+Admin & support (excl. labour hire),Poor strategic management of business,174,353,49.3
+Admin & support (excl. labour hire),Inadequate cash flow or high cash use,193,353,54.7
+Admin & support (excl. labour hire),Poor economic conditions,74,353,21.0
+Admin & support (excl. labour hire),Natural disaster,9,353,2.5
+Admin & support (excl. labour hire),Fraud,7,353,2.0
+Admin & support (excl. labour hire),DOCA failed,2,353,0.6
+Admin & support (excl. labour hire),Dispute among directors,10,353,2.8
+Admin & support (excl. labour hire),Trading losses,162,353,45.9
+Admin & support (excl. labour hire),Industry restructuring,1,353,0.3
+Admin & support (excl. labour hire),Business restructuring,2,353,0.6
+"Agriculture, forestry & fishing",Under capitalisation,39,106,36.8
+"Agriculture, forestry & fishing",Poor financial control including lack of records,33,106,31.1
+"Agriculture, forestry & fishing",Poor management of accounts receivable,5,106,4.7
+"Agriculture, forestry & fishing",Poor strategic management of business,61,106,57.5
+"Agriculture, forestry & fishing",Inadequate cash flow or high cash use,62,106,58.5
+"Agriculture, forestry & fishing",Poor economic conditions,20,106,18.9
+"Agriculture, forestry & fishing",Natural disaster,8,106,7.5
+"Agriculture, forestry & fishing",Fraud,1,106,0.9
+"Agriculture, forestry & fishing",DOCA failed,0,106,0.0
+"Agriculture, forestry & fishing",Dispute among directors,3,106,2.8
+"Agriculture, forestry & fishing",Trading losses,56,106,52.8
+"Agriculture, forestry & fishing",Industry restructuring,1,106,0.9
+"Agriculture, forestry & fishing",Business restructuring,0,106,0.0
+Arts & recreation,Under capitalisation,66,203,32.5
+Arts & recreation,Poor financial control including lack of records,41,203,20.2
+Arts & recreation,Poor management of accounts receivable,23,203,11.3
+Arts & recreation,Poor strategic management of business,107,203,52.7
+Arts & recreation,Inadequate cash flow or high cash use,125,203,61.6
+Arts & recreation,Poor economic conditions,68,203,33.5
+Arts & recreation,Natural disaster,3,203,1.5
+Arts & recreation,Fraud,0,203,0.0
+Arts & recreation,DOCA failed,0,203,0.0
+Arts & recreation,Dispute among directors,4,203,2.0
+Arts & recreation,Trading losses,113,203,55.7
+Arts & recreation,Industry restructuring,4,203,2.0
+Arts & recreation,Business restructuring,2,203,1.0
+Construction,Under capitalisation,727,2361,30.8
+Construction,Poor financial control including lack of records,945,2361,40.0
+Construction,Poor management of accounts receivable,437,2361,18.5
+Construction,Poor strategic management of business,1241,2361,52.6
+Construction,Inadequate cash flow or high cash use,1330,2361,56.3
+Construction,Poor economic conditions,604,2361,25.6
+Construction,Natural disaster,34,2361,1.4
+Construction,Fraud,49,2361,2.1
+Construction,DOCA failed,11,2361,0.5
+Construction,Dispute among directors,42,2361,1.8
+Construction,Trading losses,1124,2361,47.6
+Construction,Industry restructuring,17,2361,0.7
+Construction,Business restructuring,21,2361,0.9
+Education & training,Under capitalisation,24,76,31.6
+Education & training,Poor financial control including lack of records,31,76,40.8
+Education & training,Poor management of accounts receivable,14,76,18.4
+Education & training,Poor strategic management of business,36,76,47.4
+Education & training,Inadequate cash flow or high cash use,40,76,52.6
+Education & training,Poor economic conditions,15,76,19.7
+Education & training,Natural disaster,0,76,0.0
+Education & training,Fraud,0,76,0.0
+Education & training,DOCA failed,0,76,0.0
+Education & training,Dispute among directors,3,76,3.9
+Education & training,Trading losses,48,76,63.2
+Education & training,Industry restructuring,2,76,2.6
+Education & training,Business restructuring,0,76,0.0
+Utilities,Under capitalisation,75,238,31.5
+Utilities,Poor financial control including lack of records,85,238,35.7
+Utilities,Poor management of accounts receivable,55,238,23.1
+Utilities,Poor strategic management of business,126,238,52.9
+Utilities,Inadequate cash flow or high cash use,133,238,55.9
+Utilities,Poor economic conditions,68,238,28.6
+Utilities,Natural disaster,12,238,5.0
+Utilities,Fraud,4,238,1.7
+Utilities,DOCA failed,0,238,0.0
+Utilities,Dispute among directors,10,238,4.2
+Utilities,Trading losses,129,238,54.2
+Utilities,Industry restructuring,0,238,0.0
+Utilities,Business restructuring,4,238,1.7
+Finance & insurance,Under capitalisation,68,264,25.8
+Finance & insurance,Poor financial control including lack of records,108,264,40.9
+Finance & insurance,Poor management of accounts receivable,35,264,13.3
+Finance & insurance,Poor strategic management of business,141,264,53.4
+Finance & insurance,Inadequate cash flow or high cash use,133,264,50.4
+Finance & insurance,Poor economic conditions,21,264,8.0
+Finance & insurance,Natural disaster,1,264,0.4
+Finance & insurance,Fraud,24,264,9.1
+Finance & insurance,DOCA failed,1,264,0.4
+Finance & insurance,Dispute among directors,8,264,3.0
+Finance & insurance,Trading losses,64,264,24.2
+Finance & insurance,Industry restructuring,2,264,0.8
+Finance & insurance,Business restructuring,2,264,0.8
+Health care & social assistance,Under capitalisation,73,265,27.5
+Health care & social assistance,Poor financial control including lack of records,69,265,26.0
+Health care & social assistance,Poor management of accounts receivable,40,265,15.1
+Health care & social assistance,Poor strategic management of business,134,265,50.6
+Health care & social assistance,Inadequate cash flow or high cash use,170,265,64.2
+Health care & social assistance,Poor economic conditions,36,265,13.6
+Health care & social assistance,Natural disaster,4,265,1.5
+Health care & social assistance,Fraud,6,265,2.3
+Health care & social assistance,DOCA failed,0,265,0.0
+Health care & social assistance,Dispute among directors,11,265,4.2
+Health care & social assistance,Trading losses,144,265,54.3
+Health care & social assistance,Industry restructuring,6,265,2.3
+Health care & social assistance,Business restructuring,1,265,0.4
+Media & telecommunications,Under capitalisation,82,220,37.3
+Media & telecommunications,Poor financial control including lack of records,65,220,29.5
+Media & telecommunications,Poor management of accounts receivable,28,220,12.7
+Media & telecommunications,Poor strategic management of business,115,220,52.3
+Media & telecommunications,Inadequate cash flow or high cash use,135,220,61.4
+Media & telecommunications,Poor economic conditions,41,220,18.6
+Media & telecommunications,Natural disaster,2,220,0.9
+Media & telecommunications,Fraud,3,220,1.4
+Media & telecommunications,DOCA failed,1,220,0.5
+Media & telecommunications,Dispute among directors,6,220,2.7
+Media & telecommunications,Trading losses,128,220,58.2
+Media & telecommunications,Industry restructuring,6,220,2.7
+Media & telecommunications,Business restructuring,3,220,1.4
+Labour hire,Under capitalisation,46,247,18.6
+Labour hire,Poor financial control including lack of records,115,247,46.6
+Labour hire,Poor management of accounts receivable,47,247,19.0
+Labour hire,Poor strategic management of business,133,247,53.8
+Labour hire,Inadequate cash flow or high cash use,143,247,57.9
+Labour hire,Poor economic conditions,45,247,18.2
+Labour hire,Natural disaster,6,247,2.4
+Labour hire,Fraud,9,247,3.6
+Labour hire,DOCA failed,1,247,0.4
+Labour hire,Dispute among directors,1,247,0.4
+Labour hire,Trading losses,121,247,49.0
+Labour hire,Industry restructuring,3,247,1.2
+Labour hire,Business restructuring,2,247,0.8
+Manufacturing,Under capitalisation,140,426,32.9
+Manufacturing,Poor financial control including lack of records,107,426,25.1
+Manufacturing,Poor management of accounts receivable,66,426,15.5
+Manufacturing,Poor strategic management of business,210,426,49.3
+Manufacturing,Inadequate cash flow or high cash use,247,426,58.0
+Manufacturing,Poor economic conditions,121,426,28.4
+Manufacturing,Natural disaster,5,426,1.2
+Manufacturing,Fraud,5,426,1.2
+Manufacturing,DOCA failed,3,426,0.7
+Manufacturing,Dispute among directors,16,426,3.8
+Manufacturing,Trading losses,251,426,58.9
+Manufacturing,Industry restructuring,7,426,1.6
+Manufacturing,Business restructuring,4,426,0.9
+Mining,Under capitalisation,46,89,51.7
+Mining,Poor financial control including lack of records,38,89,42.7
+Mining,Poor management of accounts receivable,3,89,3.4
+Mining,Poor strategic management of business,52,89,58.4
+Mining,Inadequate cash flow or high cash use,66,89,74.2
+Mining,Poor economic conditions,19,89,21.3
+Mining,Natural disaster,1,89,1.1
+Mining,Fraud,2,89,2.2
+Mining,DOCA failed,7,89,7.9
+Mining,Dispute among directors,6,89,6.7
+Mining,Trading losses,40,89,44.9
+Mining,Industry restructuring,0,89,0.0
+Mining,Business restructuring,2,89,2.2
+"Other services (e.g. repairs, salons)",Under capitalisation,310,1054,29.4
+"Other services (e.g. repairs, salons)",Poor financial control including lack of records,395,1054,37.5
+"Other services (e.g. repairs, salons)",Poor management of accounts receivable,123,1054,11.7
+"Other services (e.g. repairs, salons)",Poor strategic management of business,543,1054,51.5
+"Other services (e.g. repairs, salons)",Inadequate cash flow or high cash use,558,1054,52.9
+"Other services (e.g. repairs, salons)",Poor economic conditions,221,1054,21.0
+"Other services (e.g. repairs, salons)",Natural disaster,12,1054,1.1
+"Other services (e.g. repairs, salons)",Fraud,24,1054,2.3
+"Other services (e.g. repairs, salons)",DOCA failed,7,1054,0.7
+"Other services (e.g. repairs, salons)",Dispute among directors,27,1054,2.6
+"Other services (e.g. repairs, salons)",Trading losses,446,1054,42.3
+"Other services (e.g. repairs, salons)",Industry restructuring,10,1054,0.9
+"Other services (e.g. repairs, salons)",Business restructuring,11,1054,1.0
+Professional services,Under capitalisation,130,472,27.5
+Professional services,Poor financial control including lack of records,134,472,28.4
+Professional services,Poor management of accounts receivable,47,472,10.0
+Professional services,Poor strategic management of business,211,472,44.7
+Professional services,Inadequate cash flow or high cash use,260,472,55.1
+Professional services,Poor economic conditions,75,472,15.9
+Professional services,Natural disaster,4,472,0.8
+Professional services,Fraud,7,472,1.5
+Professional services,DOCA failed,0,472,0.0
+Professional services,Dispute among directors,17,472,3.6
+Professional services,Trading losses,224,472,47.5
+Professional services,Industry restructuring,1,472,0.2
+Professional services,Business restructuring,2,472,0.4
+Public admin & safety,Under capitalisation,16,44,36.4
+Public admin & safety,Poor financial control including lack of records,26,44,59.1
+Public admin & safety,Poor management of accounts receivable,8,44,18.2
+Public admin & safety,Poor strategic management of business,25,44,56.8
+Public admin & safety,Inadequate cash flow or high cash use,32,44,72.7
+Public admin & safety,Poor economic conditions,9,44,20.5
+Public admin & safety,Natural disaster,0,44,0.0
+Public admin & safety,Fraud,0,44,0.0
+Public admin & safety,DOCA failed,0,44,0.0
+Public admin & safety,Dispute among directors,1,44,2.3
+Public admin & safety,Trading losses,23,44,52.3
+Public admin & safety,Industry restructuring,0,44,0.0
+Public admin & safety,Business restructuring,0,44,0.0
+"Rental, hiring & real estate",Under capitalisation,75,224,33.5
+"Rental, hiring & real estate",Poor financial control including lack of records,89,224,39.7
+"Rental, hiring & real estate",Poor management of accounts receivable,14,224,6.2
+"Rental, hiring & real estate",Poor strategic management of business,112,224,50.0
+"Rental, hiring & real estate",Inadequate cash flow or high cash use,114,224,50.9
+"Rental, hiring & real estate",Poor economic conditions,36,224,16.1
+"Rental, hiring & real estate",Natural disaster,1,224,0.4
+"Rental, hiring & real estate",Fraud,10,224,4.5
+"Rental, hiring & real estate",DOCA failed,0,224,0.0
+"Rental, hiring & real estate",Dispute among directors,11,224,4.9
+"Rental, hiring & real estate",Trading losses,77,224,34.4
+"Rental, hiring & real estate",Industry restructuring,1,224,0.4
+"Rental, hiring & real estate",Business restructuring,1,224,0.4
+Retail trade,Under capitalisation,206,673,30.6
+Retail trade,Poor financial control including lack of records,217,673,32.2
+Retail trade,Poor management of accounts receivable,58,673,8.6
+Retail trade,Poor strategic management of business,294,673,43.7
+Retail trade,Inadequate cash flow or high cash use,372,673,55.3
+Retail trade,Poor economic conditions,205,673,30.5
+Retail trade,Natural disaster,7,673,1.0
+Retail trade,Fraud,18,673,2.7
+Retail trade,DOCA failed,4,673,0.6
+Retail trade,Dispute among directors,13,673,1.9
+Retail trade,Trading losses,378,673,56.2
+Retail trade,Industry restructuring,12,673,1.8
+Retail trade,Business restructuring,24,673,3.6
+Transport & warehousing,Under capitalisation,123,511,24.1
+Transport & warehousing,Poor financial control including lack of records,261,511,51.1
+Transport & warehousing,Poor management of accounts receivable,50,511,9.8
+Transport & warehousing,Poor strategic management of business,282,511,55.2
+Transport & warehousing,Inadequate cash flow or high cash use,276,511,54.0
+Transport & warehousing,Poor economic conditions,79,511,15.5
+Transport & warehousing,Natural disaster,3,511,0.6
+Transport & warehousing,Fraud,8,511,1.6
+Transport & warehousing,DOCA failed,1,511,0.2
+Transport & warehousing,Dispute among directors,13,511,2.5
+Transport & warehousing,Trading losses,195,511,38.2
+Transport & warehousing,Industry restructuring,5,511,1.0
+Transport & warehousing,Business restructuring,5,511,1.0
+Wholesale trade,Under capitalisation,50,171,29.2
+Wholesale trade,Poor financial control including lack of records,68,171,39.8
+Wholesale trade,Poor management of accounts receivable,31,171,18.1
+Wholesale trade,Poor strategic management of business,93,171,54.4
+Wholesale trade,Inadequate cash flow or high cash use,90,171,52.6
+Wholesale trade,Poor economic conditions,50,171,29.2
+Wholesale trade,Natural disaster,6,171,3.5
+Wholesale trade,Fraud,6,171,3.5
+Wholesale trade,DOCA failed,0,171,0.0
+Wholesale trade,Dispute among directors,4,171,2.3
+Wholesale trade,Trading losses,93,171,54.4
+Wholesale trade,Industry restructuring,4,171,2.3
+Wholesale trade,Business restructuring,5,171,2.9
+All industries,Under capitalisation,2861,9585,29.8
+All industries,Poor financial control including lack of records,3470,9585,36.2
+All industries,Poor management of accounts receivable,1203,9585,12.6
+All industries,Poor strategic management of business,4824,9585,50.3
+All industries,Inadequate cash flow or high cash use,5446,9585,56.8
+All industries,Poor economic conditions,2440,9585,25.5
+All industries,Natural disaster,146,9585,1.5
+All industries,Fraud,193,9585,2.0
+All industries,DOCA failed,38,9585,0.4
+All industries,Dispute among directors,235,9585,2.5
+All industries,Trading losses,4772,9585,49.8
+All industries,Industry restructuring,85,9585,0.9
+All industries,Business restructuring,108,9585,1.1
