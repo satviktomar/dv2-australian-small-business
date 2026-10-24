@@ -2,477 +2,217 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Australian Small Businesses — DV2</title>
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vega-tooltip@0.34/build/vega-tooltip.min.css">
-<style>
-  * { box-sizing: border-box; }
-  body {
-    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    margin: 0; padding: 0; color: #1a1a1a; background: #fafafa;
-    line-height: 1.6; font-size: 18px;
-  }
-  header {
-    background: linear-gradient(135deg, #0b3d59 0%, #2a6f97 100%);
-    color: white; padding: 60px 20px 50px 20px; text-align: center;
-  }
-  header h1 { margin: 0 0 15px 0; font-size: 2.5em; }
-  header p { max-width: 750px; margin: 0 auto; font-size: 1.2em; opacity: 0.95; }
-  nav.toc {
-    max-width: 1000px; margin: -25px auto 50px auto; background: white;
-    border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 20px 30px; font-size: 1.05em;
-  }
-  nav.toc strong { display:block; margin-bottom: 8px; color: #2a6f97; }
-  nav.toc a { color: #333; text-decoration: none; margin-right: 14px; display: inline-block; }
-  nav.toc a:hover { color: #2a6f97; text-decoration: underline; }
-  main { max-width: 1100px; margin: 0 auto; padding: 0 20px 40px 20px; }
-  section {
-    background: white; border-radius: 10px; padding: 40px 50px;
-    margin-bottom: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  section h2 {
-    color: #0b3d59; border-left: 5px solid #2a6f97; padding-left: 12px;
-    margin-top: 0; font-size: 1.6em;
-  }
-  p.narrative { color: #444; max-width: 850px; margin-bottom: 25px; font-size: 1.08em; }
-  p.insight {
-    background: #eef6fb; border-left: 4px solid #e69f00; padding: 14px 20px;
-    font-size: 1.05em; color: #333; margin-top: 25px; border-radius: 4px;
-  }
-  .chart { display: flex; justify-content: center; align-items: center; margin-top: 15px; min-height: 380px; width: 100%; overflow-x: auto; }
-  footer {
-    font-size: 1em; color: #666; text-align: center; padding: 30px 20px;
-    border-top: 1px solid #ddd; margin-top: 20px;
-  }
-  footer a { color: #2a6f97; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small in Size, Big on Risk | Australian Small Businesses</title>
+<meta name="description" content="A data story about Australia's 2.7 million small businesses: who they are, where they are, who survives and who fails. FIT3179 Data Visualisation 2.">
+<meta name="author" content="Satvik Satvik">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
 </head>
 <body>
 
 <header>
-  <h1>Australian Small Businesses: A Data Story</h1>
-  <p>Small businesses make up over 97% of all Australian enterprises and are a cornerstone of local employment and economic resilience. This page explores where they are concentrated, how they survive, how they're structured, and which sectors they power most — using data from the Australian Bureau of Statistics (ABS).</p>
+  <div class="wrap">
+    <div class="kicker">Australian small businesses · 2022–2026</div>
+    <h1>Small in size. Big on risk.</h1>
+    <p class="lead">Almost every business in Australia is small. Most have no staff at all. This page follows them from start-up to survival, and to the point where some of them fail.</p>
+    <p class="byline">By Satvik Satvik (35411775) · FIT3179 Data Visualisation 2, Monash University · October 2026</p>
+    <div class="stats">
+      <div class="stat"><b>97.4%</b><span>of Australia's 2.81 million businesses have fewer than 20 employees (June 2026)</span></div>
+      <div class="stat"><b>55%</b><span>of businesses with no employees in June 2022 were still trading four years later</span></div>
+      <div class="stat risk"><b>14,153</b><span>companies entered insolvency in 2025–26, almost three times as many as in 2021–22</span></div>
+    </div>
+  </div>
 </header>
 
-<nav class="toc">
-  <strong>Jump to a section</strong>
-  <a href="#c1">1. Concentration by State</a>
-  <a href="#c2">2. Capital Cities</a>
-  <a href="#c3">3. Entry vs Exit Trend</a>
-  <a href="#c4">4. Entry–Exit Gap</a>
-  <a href="#c5">5. Industry Breakdown</a>
-  <a href="#c6">6. Survival Rates</a>
-  <a href="#c7">7. Business Structure</a>
-  <a href="#c8">8. Employment Share</a>
-  <a href="#c9">9. Survival vs Share</a>
-  <a href="#c10">10. State Trends</a>
-</nav>
+<nav aria-label="Chapters"><div class="wrap">
+  <a href="#who">1 · Who they are</a><a href="#where">2 · Where they are</a><a href="#survive">3 · Who survives</a><a href="#fail">4 · Who fails, and why</a><a href="#sources">Sources</a>
+</div></nav>
 
-<main>
+<main class="wrap">
 
-<section id="c1">
-  <h2>1. Where Small Businesses Are Concentrated</h2>
-  <p class="narrative">Small business counts vary sharply by state, largely tracking population and economic scale. NSW and Victoria together account for the majority of Australia's small business population.</p>
-  <div id="chart1" class="chart"></div>
-  <p class="insight">Insight: colour intensity encodes the actual number of small businesses per state — darker blue means more businesses, directly tied to real ABS counts rather than an arbitrary category.</p>
+<!-- ========== 1. WHO ========== -->
+<section class="chapter" id="who">
+  <div class="chapter-head"><div class="num">01</div><div>
+    <h2>Who they are: a nation of one-person businesses</h2>
+    <p>In this story, a <strong>small business</strong> is one with fewer than 20 employees, the ABS definition. A <strong>non-employing</strong> business has no staff: think a tradie, a consultant or a delivery driver working alone.</p>
+  </div></div>
+
+  <div class="fig grid2">
+    <div>
+      <span class="tag">Composition · June 2026</span>
+      <h3>Out of every 100 businesses, 65 have no employees</h3>
+      <p>Each square is one in every hundred Australian businesses. Only <strong>3 squares</strong> represent firms with 20 or more staff.</p>
+      <p class="note teal">Together, the three small-business groups make up <strong>97.4%</strong> of all 2,814,778 actively trading businesses.</p>
+      <p class="source">Data: ABS, Counts of Australian Businesses (CABEE), Jul 2022–Jun 2026, Table 13.</p>
+    </div>
+    <div id="waffle" class="chart center"></div>
+  </div>
+
+  <div class="fig grid2">
+    <div>
+      <span class="tag">Change · 2022 → 2026</span>
+      <h3>Solo operators are taking a bigger slice</h3>
+      <p>Between June 2022 and June 2026 the <span class="hl-t">non-employing</span> share rose from 59.9% to 64.6%. The <span class="hl-r">1–4 employee</span> share fell from 28.6% to 24.5%.</p>
+      <p>Larger groups barely moved. The growth in Australian business is coming from people working on their own.</p>
+      <p class="source">Data: ABS CABEE, Table 13. Share = group count ÷ all businesses at each date. Axis starts at zero.</p>
+    </div>
+    <div id="slope" class="chart"></div>
+  </div>
+
+  <div class="fig">
+    <span class="tag">Flows · 1–4 employee businesses</span>
+    <h3>393,004 new micro-businesses opened, yet the group still shrank</h3>
+    <p class="sub">Start with June 2022, add entries, subtract exits and businesses that changed size. The bar on the right is June 2026.</p>
+    <div id="waterfall" class="chart"></div>
+    <p class="note">Entries outnumbered exits by 125,563. But 163,420 surviving businesses <strong>moved to another size group</strong>, for example by hiring more staff or letting all staff go. Net result: 37,857 fewer businesses with 1–4 employees.</p>
+    <p class="source">Data: ABS CABEE, Table 13, four financial years 2022–23 to 2025–26 added together. “Moved to another size” is the ABS “net movement of surviving businesses”.</p>
+  </div>
+
+  <div class="fig grid2 even">
+    <div>
+      <span class="tag">Legal structure · 2022–23 to 2025–26</span>
+      <h3>Sole traders churn fastest; partnerships are fading</h3>
+      <p>Each line traces one legal structure over four years. Points <strong>below</strong> the dashed line mean more businesses started than closed.</p>
+      <p><span class="hl-r">Sole proprietors</span> have the highest entry rate (23.0%) <em>and</em> exit rate (19.9%): easy to start, easy to stop.</p>
+      <p><strong>Partnerships</strong> sit above the line every year. Their number fell from 231,843 to 196,015.</p>
+      <p class="source">Data: ABS CABEE, Table 10. Entry rate = entries ÷ businesses at start of year. Click a legend item to focus a line.</p>
+    </div>
+    <div id="legal" class="chart"></div>
+  </div>
 </section>
 
-<section id="c2">
-  <h2>2. Small Business Count by Capital City</h2>
-  <p class="narrative">Sydney and Melbourne dominate in sheer business counts, reflecting their status as Australia's two largest commercial hubs. Hover over each circle to see exact figures.</p>
-  <div id="chart2" class="chart"></div>
+<!-- ========== 2. WHERE ========== -->
+<section class="chapter" id="where">
+  <div class="chapter-head"><div class="num">02</div><div>
+    <h2>Where they are: business is densest in the south-east</h2>
+    <p>Raw counts would simply show where people live. So this map divides businesses by population to compare states fairly.</p>
+  </div></div>
+
+  <div class="fig grid2">
+    <div>
+      <span class="tag">Choropleth map · June 2026</span>
+      <h3>NSW and Victoria have about 108 businesses per 1,000 residents</h3>
+      <p>That is <strong>two-thirds more</strong> than the Northern Territory (65 per 1,000). Tasmania and the ACT also sit below 80.</p>
+      <p>Hover a state to see its business count, growth and insolvencies.</p>
+      <p class="note teal">The map uses an <strong>Albers equal-area projection</strong>, so state sizes are not distorted the way they are on a web (Mercator) map.</p>
+      <p class="source">Data: ABS CABEE Table 4 (businesses, June 2026) ÷ ABS National, State and Territory Population, March 2026 (estimated resident population). Classes are natural breaks in the eight values.</p>
+    </div>
+    <div id="choropleth" class="chart"></div>
+  </div>
 </section>
 
-<section id="c3">
-  <h2>3. Business Entry vs Exit Trend (2020–2024)</h2>
-  <p class="narrative">The gap between entries and exits narrowed after the pandemic-era business boom of 2021, suggesting the market is stabilising rather than continuing rapid expansion.</p>
-  <div id="chart3" class="chart"></div>
+<!-- ========== 3. SURVIVE ========== -->
+<section class="chapter" id="survive">
+  <div class="chapter-head"><div class="num">03</div><div>
+    <h2>Who survives: the smaller you start, the shorter you last</h2>
+    <p>The ABS follows the same group of businesses year after year. “Surviving” means still actively trading, not necessarily making a profit.</p>
+  </div></div>
+
+  <div class="fig">
+    <span class="tag">Cohort heatmap · businesses trading in June 2022</span>
+    <h3>After four years, only 55% of businesses with no employees were still trading</h3>
+    <p class="sub">Read across each row: how many of the businesses trading in June 2022 were still going each following June. Darker means more survived.</p>
+    <div id="survival" class="chart"></div>
+    <p class="note">Survival rises with every step up in size: from <strong>55.3%</strong> for non-employing businesses to <strong>89.3%</strong> for those with 200+ staff. This shows an association, not proof that hiring causes survival.</p>
+    <p class="source">Data: ABS CABEE, Table 15. Size is fixed at the June 2022 starting point.</p>
+  </div>
+
+  <div class="fig grid2">
+    <div>
+      <span class="tag">Dumbbell chart · new businesses</span>
+      <h3>New solo businesses lose most ground after their first year</h3>
+      <p>Of the 297,302 non-employing businesses that started in 2022–23, <span class="hl-t">73%</span> were still trading a year later, but only <span class="hl-r">45%</span> three years later.</p>
+      <p>The longer the bar, the bigger the drop. It is longest for the smallest businesses.</p>
+      <p class="source">Data: ABS CABEE, Table 16 (entries survival). Axis starts at zero.</p>
+    </div>
+    <div id="dumbbell" class="chart"></div>
+  </div>
 </section>
 
-<section id="c4">
-  <h2>4. Business Entry–Exit Gap by Year</h2>
-  <p class="narrative">This dumbbell view makes the entry-exit gap per year easier to compare directly — the wider the gap, the stronger net business growth that year.</p>
-  <div id="chart4" class="chart"></div>
+<!-- ========== 4. FAIL ========== -->
+<section class="chapter" id="fail">
+  <div class="chapter-head"><div class="num">04</div><div>
+    <h2>Who fails, and why</h2>
+    <p>Most closures are quiet: an owner simply stops trading. When a <strong>company</strong> cannot pay its debts, an external administrator (such as a liquidator) is appointed. These insolvencies are recorded by ASIC, the corporate regulator.</p>
+  </div></div>
+
+  <div class="fig">
+    <span class="tag risk">Calendar heatmap · monthly</span>
+    <h3>Insolvencies have stayed near record levels for two years</h3>
+    <p class="sub">Each cell is one month. Monthly counts climbed from about 400 in 2021–22 to more than 1,200 in 2024–25.</p>
+    <div id="calendar" class="chart"></div>
+    <p class="note">2024–25 had <strong>14,722</strong> companies enter insolvency and 2025–26 had <strong>14,153</strong>, about three times the 4,912 of 2021–22. August 2026 (1,808) is the highest month shown; recent months are provisional.</p>
+    <p class="source">Data: ASIC Insolvency Statistics Series 1, Table 1.3 (companies entering external administration for the first time), published 12 October 2026, data to 27 September 2026.</p>
+  </div>
+
+  <div class="fig grid2 even">
+    <div>
+      <span class="tag risk">Proportional symbol map · 2025–26</span>
+      <h3>Most failures happen where most businesses are</h3>
+      <p>Circle <strong>area</strong> shows how many companies entered insolvency. New South Wales (5,367) and Victoria (4,100) dominate.</p>
+      <div id="symbols" class="chart"></div>
+      <p class="source">Data: ASIC Series 1, Table 1.3, by principal place of business, FY2025–26.</p>
+    </div>
+    <div>
+      <span class="tag risk">Hexagon tile map · 2025–26</span>
+      <h3>But relative to size, the ACT is most at risk</h3>
+      <p>Every state gets an equal hexagon, so small territories are not hidden. Colour shows insolvencies <strong>per 10,000 businesses</strong>.</p>
+      <div id="hex" class="chart center"></div>
+      <p class="note">The ACT (68) and NSW (57) have the highest rates; Western Australia (30) the lowest.</p>
+      <p class="source">Data: ASIC Series 1 ÷ ABS CABEE Table 4 (June 2026). ASIC counts companies only; the ABS count includes all business types.</p>
+    </div>
+  </div>
+
+  <div class="fig">
+    <span class="tag risk">Butterfly chart · 2024–25</span>
+    <h3>Hospitality is 4% of businesses but 17% of company failures</h3>
+    <p class="sub">Left: each industry's share of all businesses. Right: its share of company failures reported by liquidators. <strong>Bold</strong> industries fail more often than their size would suggest.</p>
+    <div id="butterfly" class="chart center"></div>
+    <p class="note">Construction is 17.0% of businesses and 24.6% of failures. Of failed companies whose size was known, <strong>79% had fewer than five full-time staff</strong> and 95% had fewer than 20.</p>
+    <p class="source">Data: ABS CABEE Table 1 (June 2025) and ASIC Insolvency Statistics Series 3.1, Tables 3.1.1–3.1.2 (initial external administrators' reports, 1 July 2024–30 June 2025). Labour hire is merged into admin &amp; support. ASIC lists some trades (e.g. electricians, plumbers) under utilities, so small industries are not perfectly comparable.</p>
+  </div>
+
+  <div class="fig">
+    <span class="tag risk">Interactive bar chart · 2024–25</span>
+    <h3>Running out of cash is the most common reason companies fail</h3>
+    <p class="sub">Liquidators can name several causes per company. Pick an industry; the dark tick shows the average for all industries.</p>
+    <div id="causes" class="chart"></div>
+    <p class="note">Across all industries, <strong>57%</strong> of reports named inadequate cash flow. In hospitality, poor economic conditions (40%) were named far more often than average (26%).</p>
+    <p class="source">Data: ASIC Insolvency Statistics Series 3.1, Table 3.1.3 (nominated causes of failure, 2024–25). Seven most-named causes shown.</p>
+  </div>
 </section>
 
-<section id="c5">
-  <h2>5. Number of Businesses by Industry</h2>
-  <p class="narrative">Construction and Professional Services lead by volume. Click a bar to highlight it and compare against the rest.</p>
-  <div id="chart5" class="chart"></div>
+<section class="takeaway">
+  <h2>What this means</h2>
+  <ol>
+    <li>Australia's business growth is driven by people working alone, and they are the least likely to last.</li>
+    <li>Getting through the first three years, and to the first hire, is where survival rates diverge.</li>
+    <li>Company failures have nearly tripled since 2021–22, concentrated in very small firms, construction and hospitality. Cash flow is the warning sign to watch.</li>
+  </ol>
 </section>
 
-<section id="c6">
-  <h2>6. 4-Year Survival Rate by Industry</h2>
-  <p class="narrative">Agriculture businesses show the strongest long-term survival rate, while hospitality (Accommodation & Food) struggles most — consistent with its traditionally thin margins and high turnover.</p>
-  <div id="chart6" class="chart"></div>
-</section>
-
-<section id="c7">
-  <h2>7. Business Structure Breakdown</h2>
-  <p class="narrative">The majority of Australian small businesses operate as sole traders, reflecting low barriers to entry for solo and micro enterprises rather than incorporated companies.</p>
-  <div id="chart7" class="chart"></div>
-</section>
-
-<section id="c8">
-  <h2>8. Small Business Employment Share by Sector</h2>
-  <p class="narrative">In Construction and Agriculture, small businesses account for the majority of sector employment — these industries rely far more heavily on small operators than large corporates.</p>
-  <div id="chart8" class="chart"></div>
-</section>
-
-<section id="c9">
-  <h2>9. Survival Rate vs Employment Share</h2>
-  <p class="narrative">Plotting survival rate against employment share reveals whether sectors that rely more on small business also tend to have more resilient small businesses. Point size reflects total business count in that industry.</p>
-  <div id="chart9" class="chart"></div>
-</section>
-
-<section id="c10">
-  <h2>10. Entry Trend by State</h2>
-  <p class="narrative">Faceting the entry trend by state shows growth patterns are not uniform — NSW and VIC drive most of the national trend, while smaller states remain comparatively flat.</p>
-  <div id="chart10" class="chart"></div>
+<section id="sources" class="fig">
+  <h3>Sources, methods and credits</h3>
+  <p><strong>Data source 1 — Australian Bureau of Statistics.</strong> <a href="https://www.abs.gov.au/statistics/economy/business-indicators/counts-australian-businesses-including-entries-and-exits/jul2022-jun2026" target="_blank" rel="noopener">Counts of Australian Businesses, including Entries and Exits, July 2022–June 2026</a> (released 18 August 2026), Data cube 1, Tables 1, 4, 10, 13, 15, 16; and <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2026" target="_blank" rel="noopener">National, State and Territory Population, March 2026</a>, Table 4.</p>
+  <p><strong>Data source 2 — Australian Securities &amp; Investments Commission.</strong> <a href="https://asic.gov.au/regulatory-resources/find-a-document/statistics/insolvency-statistics/insolvency-statistics-series-1-companies-entering-external-administration/" target="_blank" rel="noopener">Insolvency statistics</a>: Series 1 (published 12 October 2026) and Series 3.1, 2024–25 (released December 2025).</p>
+  <p><strong>Map boundaries:</strong> <a href="https://github.com/codeforgermany/click_that_hood" target="_blank" rel="noopener">Click that 'hood</a> Australia states GeoJSON, simplified and converted to TopoJSON with Mapshaper.</p>
+  <p><strong>Methods:</strong> ABS counts are actively trading businesses in the market sector (businesses registered for GST), not every ABN. Small business = fewer than 20 employees. All derived values (shares, per-1,000 and per-10,000 rates) are calculated in <code>scripts/build_data.py</code> from the original workbooks. Every chart's Vega-Lite specification is in the <code>specs/</code> folder of this repository.</p>
+  <p><strong>AI acknowledgement:</strong> Generative AI (Claude, Anthropic) was used to help write code, check data processing and proofread text. All data, chart choices and conclusions were checked by the author.</p>
 </section>
 
 </main>
 
-<footer>
-  Sources: Australian Bureau of Statistics (ABS) — <a href="https://www.abs.gov.au/statistics/economy/business-indicators/counts-australian-businesses-including-entries-and-exits/jul2020-jun2024" target="_blank">Counts of Australian Businesses, including Entries and Exits</a> (Jul 2020 – Jun 2024).
-</footer>
+<footer><div class="wrap">
+  <p>© 2026 Satvik Satvik (35411775). Created for FIT3179 Data Visualisation, Monash University, October 2026. Built with Vega-Lite. Fonts: Fraunces and Work Sans (Google Fonts, SIL Open Font Licence). ABS and ASIC data used under CC BY 4.0.</p>
+</div></footer>
 
-<script>
-vegaEmbed('#chart1', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650, "height": 480,
-  "config": {
-    "axis": {"labelFontSize": 13, "titleFontSize": 15, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "legend": {"labelFontSize": 13, "titleFontSize": 14, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "title": {"fontSize": 16, "font": "Segoe UI"},
-    "text": {"fontSize": 13}
-  },
-  "data": {
-    "url": "https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/australia.geojson",
-    "format": {"type": "json", "property": "features"}
-  },
-  "transform": [
-    {"calculate": "{'New South Wales':820000,'Victoria':720000,'Queensland':480000,'Western Australia':280000,'South Australia':170000,'Tasmania':50000,'Northern Territory':25000,'Australian Capital Territory':35000}[datum.properties.name]", "as": "businesses"}
-  ],
-  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1},
-  "encoding": {
-    "color": {
-      "field": "businesses", "type": "quantitative",
-      "scale": {"scheme": "blues", "domain": [0, 850000]},
-      "legend": {
-        "title": "Small Businesses",
-        "format": ",.0f",
-        "tickCount": 5,
-        "gradientLength": 220,
-        "gradientThickness": 18
-      }
-    },
-    "tooltip": [
-      {"field": "properties.name", "title": "State"},
-      {"field": "businesses", "title": "Small Businesses", "format": ","}
-    ]
-  },
-  "projection": {"type": "mercator"}
-}, {"actions": false}).catch(function(err){
-  document.getElementById('chart1').innerHTML = '<p style="color:#b00;">Map failed to load — check internet connection or geojson URL.</p>';
-  console.error(err);
-});
-
-vegaEmbed('#chart2', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650, "height": 480,
-  "config": {
-    "axis": {"labelFontSize": 13, "titleFontSize": 15, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "legend": {"labelFontSize": 13, "titleFontSize": 14, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "title": {"fontSize": 16, "font": "Segoe UI"},
-    "text": {"fontSize": 13}
-  },
-  "data": {"values": [
-    {"city": "Sydney", "lat": -33.87, "lon": 151.21, "count": 280000},
-    {"city": "Melbourne", "lat": -37.81, "lon": 144.96, "count": 260000},
-    {"city": "Brisbane", "lat": -27.47, "lon": 153.03, "count": 140000},
-    {"city": "Perth", "lat": -31.95, "lon": 115.86, "count": 120000},
-    {"city": "Adelaide", "lat": -34.93, "lon": 138.60, "count": 70000}
-  ]},
-  "layer": [
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/australia.geojson",
-        "format": {"type": "json", "property": "features"}
-      },
-      "mark": {"type": "geoshape", "fill": "#e8eef2", "stroke": "#cfd8dc", "strokeWidth": 1}
-    },
-    {
-      "mark": {"type": "circle", "opacity": 0.75, "color": "#2a6f97", "stroke": "white", "strokeWidth": 1.5},
-      "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
-        "size": {
-          "field": "count", "type": "quantitative", "title": "Small Businesses",
-          "scale": {"type": "sqrt", "range": [200, 3200], "zero": false, "domain": [70000, 280000]},
-          "legend": {"values": [70000, 150000, 220000, 280000], "format": ",.0f", "formatType": "number"}
-        },
-        "tooltip": [{"field": "city", "title": "City"}, {"field": "count", "title": "Businesses", "format": ","}]
-      }
-    },
-    {
-      "mark": {"type": "text", "dy": -22, "fontSize": 13, "fontWeight": "bold", "color": "#0b3d59"},
-      "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
-        "text": {"field": "city"}
-      }
-    }
-  ],
-  "resolve": {"scale": {"longitude": "shared", "latitude": "shared"}},
-  "projection": {"type": "mercator"}
-}, {"actions": false});
-
-vegaEmbed('#chart3', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650, "height": 380,
-  "config": {
-    "axis": {"labelFontSize": 13, "titleFontSize": 15, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "legend": {"labelFontSize": 13, "titleFontSize": 14, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "title": {"fontSize": 16, "font": "Segoe UI"},
-    "text": {"fontSize": 13}
-  },
-  "data": {"values": [
-    {"year": 2020, "type": "Entries", "count": 290000},
-    {"year": 2021, "type": "Entries", "count": 350000},
-    {"year": 2022, "type": "Entries", "count": 320000},
-    {"year": 2023, "type": "Entries", "count": 300000},
-    {"year": 2024, "type": "Entries", "count": 310000},
-    {"year": 2020, "type": "Exits", "count": 250000},
-    {"year": 2021, "type": "Exits", "count": 230000},
-    {"year": 2022, "type": "Exits", "count": 280000},
-    {"year": 2023, "type": "Exits", "count": 290000},
-    {"year": 2024, "type": "Exits", "count": 270000}
-  ]},
-  "mark": {"type": "line", "point": {"size": 120, "filled": true}, "strokeWidth": 3},
-  "encoding": {
-    "x": {"field": "year", "type": "ordinal", "title": "Year"},
-    "y": {"field": "count", "type": "quantitative", "title": "Businesses", "axis": {"format": ",.0f"}},
-    "color": {"field": "type", "type": "nominal", "title": "Type", "scale": {"range": ["#2a6f97", "#e69f00"]}},
-    "tooltip": [
-      {"field": "year", "title": "Year"},
-      {"field": "type", "title": "Type"},
-      {"field": "count", "title": "Businesses", "format": ","}
-    ]
-  }
-}, {"actions": false});
-
-vegaEmbed('#chart4', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650, "height": 380,
-  "config": {
-    "axis": {"labelFontSize": 13, "titleFontSize": 15, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "legend": {"labelFontSize": 13, "titleFontSize": 14, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "title": {"fontSize": 16, "font": "Segoe UI"},
-    "text": {"fontSize": 13}
-  },
-  "data": {"values": [
-    {"year": "2020", "entries": 290000, "exits": 250000},
-    {"year": "2021", "entries": 350000, "exits": 230000},
-    {"year": "2022", "entries": 320000, "exits": 280000},
-    {"year": "2023", "entries": 300000, "exits": 290000},
-    {"year": "2024", "entries": 310000, "exits": 270000}
-  ]},
-  "layer": [
-    {
-      "mark": {"type": "rule", "strokeWidth": 3, "color": "#999"},
-      "encoding": {
-        "y": {"field": "year", "type": "ordinal"},
-        "x": {"field": "exits", "type": "quantitative", "title": "Businesses", "axis": {"tickCount": 6, "format": "~s"}}
-        ,"x2": {"field": "entries"}
-      }
-    },
-    {
-      "mark": {"type": "point", "filled": true, "size": 220, "color": "#e69f00"},
-      "encoding": {
-        "y": {"field": "year", "type": "ordinal"},
-        "x": {"field": "exits", "type": "quantitative", "axis": {"tickCount": 6, "format": "~s"}},
-        "tooltip": [{"field": "year", "title": "Year"}, {"field": "exits", "title": "Exits", "format": ","}]
-      }
-    },
-    {
-      "mark": {"type": "point", "filled": true, "size": 220, "color": "#2a6f97"},
-      "encoding": {
-        "y": {"field": "year", "type": "ordinal"},
-        "x": {"field": "entries", "type": "quantitative", "axis": {"tickCount": 6, "format": "~s"}},
-        "tooltip": [{"field": "year", "title": "Year"}, {"field": "entries", "title": "Entries", "format": ","}]
-      }
-    }
-  ]
-}, {"actions": false});
-
-var industrySelection = {"name": "industryClick", "select": "point", "fields": ["industry"]};
-vegaEmbed('#chart5', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650, "height": 380,
-  "data": {"values": [
-    {"industry": "Construction", "count": 410000},
-    {"industry": "Professional Services", "count": 350000},
-    {"industry": "Retail Trade", "count": 140000},
-    {"industry": "Accommodation & Food", "count": 95000},
-    {"industry": "Agriculture", "count": 85000}
-  ]},
-  "params": [industrySelection],
-  "mark": "bar",
-  "encoding": {
-    "x": {"field": "count", "type": "quantitative", "title": "Number of Businesses"},
-    "y": {"field": "industry", "type": "nominal", "sort": "-x"},
-    "color": {
-      "condition": {"param": "industryClick", "value": "#e69f00"},
-      "value": "#2a6f97"
-    },
-    "tooltip": ["industry", "count"]
-  }
-}, {"actions": false});
-
-vegaEmbed('#chart6', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650, "height": 380,
-  "data": {"values": [
-    {"industry": "Agriculture", "rate": 65},
-    {"industry": "Construction", "rate": 58},
-    {"industry": "Retail Trade", "rate": 52},
-    {"industry": "Professional Services", "rate": 60},
-    {"industry": "Accommodation & Food", "rate": 45}
-  ]},
-  "mark": {"type": "point", "filled": true, "size": 150},
-  "encoding": {
-    "x": {"field": "rate", "type": "quantitative", "title": "4-Year Survival Rate (%)", "scale": {"domain": [0, 100]}},
-    "y": {"field": "industry", "type": "nominal", "sort": "-x"},
-    "color": {"value": "#2a6f97"},
-    "tooltip": ["industry", "rate"]
-  }
-}, {"actions": false});
-
-vegaEmbed('#chart7', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 450, "height": 420,
-  "config": {
-    "legend": {"labelFontSize": 13, "titleFontSize": 14, "labelFont": "Segoe UI", "titleFont": "Segoe UI"},
-    "view": {"stroke": null}
-  },
-  "data": {"values": [
-    {"structure": "Sole trader", "pct": 61},
-    {"structure": "Company", "pct": 20},
-    {"structure": "Trust", "pct": 13},
-    {"structure": "Partnership", "pct": 6}
-  ]},
-  "layer": [
-    {
-      "params": [{"name": "hoverSlice", "select": {"type": "point", "on": "pointerover"}}],
-      "mark": {"type": "arc", "outerRadius": 150, "stroke": "white", "strokeWidth": 2},
-      "encoding": {
-        "theta": {"field": "pct", "type": "quantitative"},
-        "color": {"field": "structure", "type": "nominal", "title": "Structure", "scale": {"scheme": "blues"}},
-        "opacity": {"condition": {"param": "hoverSlice", "value": 1}, "value": 0.75},
-        "tooltip": [
-          {"field": "structure", "title": "Structure"},
-          {"field": "pct", "title": "Share", "format": ".0f"}
-        ]
-      }
-    },
-    {
-      "mark": {"type": "text", "radius": 170, "fontSize": 13, "fontWeight": "bold", "color": "#0b3d59"},
-      "encoding": {
-        "theta": {"field": "pct", "type": "quantitative", "stack": true},
-        "text": {"field": "pct", "type": "quantitative", "format": ".0f"}
-      }
-    }
-  ]
-}, {"actions": false}).catch(console.error);
-
-vegaEmbed('#chart8', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650, "height": 380,
-  "data": {"values": [
-    {"sector": "Construction", "share": 68},
-    {"sector": "Agriculture", "share": 64},
-    {"sector": "Accommodation & Food", "share": 51},
-    {"sector": "Professional Services", "share": 46},
-    {"sector": "Retail Trade", "share": 42}
-  ]},
-  "mark": "bar",
-  "encoding": {
-    "x": {"field": "share", "type": "quantitative", "title": "Small Business Employment Share (%)", "scale": {"domain": [0, 100]}},
-    "y": {"field": "sector", "type": "nominal", "sort": "-x"},
-    "color": {"value": "#e69f00"},
-    "tooltip": ["sector", "share"]
-  }
-}, {"actions": false});
-
-vegaEmbed('#chart9', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 550, "height": 420,
-  "autosize": {"type": "pad", "contains": "padding"},
-  "padding": {"left": 5, "right": 120, "top": 10, "bottom": 10},
-  "data": {"values": [
-    {"industry": "Construction", "survival": 58, "share": 68, "count": 410000},
-    {"industry": "Agriculture", "survival": 65, "share": 64, "count": 85000},
-    {"industry": "Accommodation & Food", "survival": 45, "share": 51, "count": 95000},
-    {"industry": "Professional Services", "survival": 60, "share": 46, "count": 350000},
-    {"industry": "Retail Trade", "survival": 52, "share": 42, "count": 140000}
-  ]},
-  "mark": {"type": "point", "filled": true},
-  "encoding": {
-    "x": {"field": "share", "type": "quantitative", "title": "Employment Share (%)", "scale": {"domain": [35, 75], "zero": false}},
-    "y": {"field": "survival", "type": "quantitative", "title": "4-Year Survival Rate (%)", "scale": {"domain": [40, 70], "zero": false}},
-    "size": {"field": "count", "type": "quantitative", "title": "Business Count", "scale": {"range": [200, 2000]}, "legend": {"orient": "right", "offset": 20}},
-    "color": {"field": "industry", "type": "nominal", "scale": {"scheme": "category10"}, "legend": {"orient": "right", "offset": 20}},
-    "tooltip": ["industry", "share", "survival", "count"]
-  }
-}, {"actions": false});
-
-vegaEmbed('#chart10', {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"values": [
-    {"year": "2020", "state": "NSW", "entries": 95000},
-    {"year": "2021", "state": "NSW", "entries": 115000},
-    {"year": "2022", "state": "NSW", "entries": 105000},
-    {"year": "2023", "state": "NSW", "entries": 98000},
-    {"year": "2024", "state": "NSW", "entries": 100000},
-    {"year": "2020", "state": "VIC", "entries": 88000},
-    {"year": "2021", "state": "VIC", "entries": 108000},
-    {"year": "2022", "state": "VIC", "entries": 97000},
-    {"year": "2023", "state": "VIC", "entries": 90000},
-    {"year": "2024", "state": "VIC", "entries": 93000},
-    {"year": "2020", "state": "QLD", "entries": 52000},
-    {"year": "2021", "state": "QLD", "entries": 63000},
-    {"year": "2022", "state": "QLD", "entries": 58000},
-    {"year": "2023", "state": "QLD", "entries": 55000},
-    {"year": "2024", "state": "QLD", "entries": 57000},
-    {"year": "2020", "state": "WA", "entries": 30000},
-    {"year": "2021", "state": "WA", "entries": 36000},
-    {"year": "2022", "state": "WA", "entries": 33000},
-    {"year": "2023", "state": "WA", "entries": 31000},
-    {"year": "2024", "state": "WA", "entries": 32000},
-    {"year": "2020", "state": "SA", "entries": 15000},
-    {"year": "2021", "state": "SA", "entries": 18000},
-    {"year": "2022", "state": "SA", "entries": 16500},
-    {"year": "2023", "state": "SA", "entries": 15500},
-    {"year": "2024", "state": "SA", "entries": 16000}
-  ]},
-  "title": "Entry Trend by State",
-  "spec": {
-    "width": 180, "height": 170,
-    "mark": {"type": "line", "point": {"size": 50, "filled": true}, "color": "#2a6f97", "strokeWidth": 2},
-    "encoding": {
-      "x": {"field": "year", "type": "ordinal", "title": null, "axis": {"labelAngle": 0}},
-      "y": {"field": "entries", "type": "quantitative", "title": "Entries", "scale": {"domain": [0, 120000]}},
-      "tooltip": [{"field": "year"}, {"field": "state"}, {"field": "entries", "title": "Entries"}]
-    }
-  },
-  "facet": {"field": "state", "type": "nominal", "columns": 3, "sort": ["NSW", "VIC", "QLD", "WA", "SA"], "title": null},
-  "resolve": {"scale": {"y": "shared"}}
-}, {"actions": false});
-</script>
-
+<script src="js/bundle.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
